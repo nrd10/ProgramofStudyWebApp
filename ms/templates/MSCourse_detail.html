@@ -1,0 +1,290 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+{{form.media}}
+
+<h1>Submitted M.S. Coursework Program of Study Form</h1>
+<h4>Date of Submission: <strong>{{ mscoursepos.submission }}</strong></h4>
+
+  <p> Name: <strong>{{ mscoursepos.owner.get_full_name }}</strong></p>
+  <p> Advisor: <strong>{{ mscoursepos.owner.advisor.get_full_name }}</strong> </p>
+
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course I: <strong>{{ mscoursepos.gradececourseone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.gradeceoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.gradeceonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course II: <strong>{{ mscoursepos.gradececoursetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.gradecetwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.gradecetwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course III: <strong>{{ mscoursepos.gradececoursethree }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.gradecethreeterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.gradecethreegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course IV: <strong>{{ mscoursepos.gradececoursefour }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.gradecefourterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.gradecefourgrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate Technical Elective I from ECE or other approved areas: <strong>{{ mscoursepos.gradtechcourseone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.gradtechoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.gradtechonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate Technical Elective II from ECE or other approved areas: <strong>{{ mscoursepos.gradtechcoursetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.gradtechtwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.gradtechtwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective I: <strong>{{ mscoursepos.electiveone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.electiveoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.electiveonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective II: <strong>{{ mscoursepos.electivetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.electivetwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.electivetwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective III: <strong>{{ mscoursepos.electivethree }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.electivethreeterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.electivethreegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective IV: <strong>{{ mscoursepos.electivefour }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ mscoursepos.electivefourterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ mscoursepos.electivefourgrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+  {% ifequal mscoursepos.state "AdvisorPending" %}
+    <h3>Status: <strong class="text-warning">Pending Advisor Approval</strong></h3>
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal mscoursepos.state "DGSPending" %}
+    <h3>Status: <strong class="text-warning">Pending DGS Approval</strong></h3>
+  {% endifequal %}
+  </p>
+
+
+  <p>
+  {% ifequal mscoursepos.state "Approved" %}
+    <h3>Status: <strong class="text-success">Approved</strong></h3>
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal mscoursepos.state "AdvisorRejected" %}
+    <h3>Status: <strong class="text-danger">Rejected</strong></h3>
+    {% if usertype is "MEng" %}
+      You may now submit a new form, or resubmit this form.
+    {% else %}
+      This student may now submit a new form, or resubmit this form.
+    {% endif %}
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal mscoursepos.state "DGSRejected" %}
+    <h3>Status: <strong class="text-danger">Rejected</strong></h3>
+    {% if usertype is "MEng" %}
+      <p> You may now submit a new form, or resubmit this form.</p>
+    {% else %}
+      <p>This student may now submit a new form, or resubmit this form.</p>
+    {% endif %}
+  {% endifequal %}
+  </p>
+
+  {% buttons %}
+    {% if usertype == "MS" %}
+      <a href="{% url 'mscourse-detail-update' pk=mscoursepos.id %}"class="btn btn-primary btn-sm">Update</a>
+    {% elif usertype == "Advisor" %}
+      <a href="{% url 'advisor-mscourse-approve' form_id=mscoursepos.id %}"class="btn btn-success btn-sm">Approve</a>
+      <a href="{% url 'advisor-mscourse-reject' form_id=mscoursepos.id %}"class="btn btn-danger btn-sm">Reject</a>
+    {% elif usertype == "DGS" %}
+      <a href="{% url 'dgs-mscourse-approve' form_id=mscoursepos.id %}"class="btn btn-success btn-sm">Approve</a>
+      <a href="{% url 'dgs-mscourse-reject' form_id=mscoursepos.id %}"class="btn btn-danger btn-sm">Reject</a>
+    {% elif usertype == "Administrator" %}
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+      Delete</button>
+    {% endif %}
+  {% endbuttons %}
+
+  {% if mscoursepos.state == "AdvisorRejected" and usertype != "DGS" %}
+    <h3><strong>Advisor Rejection Comments</strong></h3>
+  {% endif %}
+
+  {% for comment in mscoursepos.comments.all %}
+    {% if comment.authortype == "Advisor" and mscoursepos.state == "AdvisorRejected" and usertype != "DGS" %}
+      <p>
+        <div class="row">
+            <div class="col-md-3">
+              Comment: <strong>{{ comment.text}}</strong>
+            </div>
+            <div class="col-md-4">
+              Comment Submission: <strong>{{ comment.created_date }}</strong>
+            </div>
+        </div>
+      </p>
+    {% endif %}
+  {% endfor %}
+
+  {% if mscoursepos.state == "DGSRejected" %}
+    <h3><strong>DGS Rejection Comments</strong></h3>
+  {% endif %}
+
+  {% for comment in mscoursepos.comments.all %}
+    {% if comment.authortype == "DGS" and mscoursepos.state == "DGSRejected" %}
+      <p>
+        <div class="row">
+            <div class="col-md-3">
+              Comment: <strong>{{ comment.text}}</strong>
+            </div>
+            <div class="col-md-4">
+              Submission Date: <strong>{{ comment.created_date }}</strong>
+            </div>
+        </div>
+      </p>
+    {% endif %}
+  {% endfor %}
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deletion Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <a href="{% url 'admin-mscourse-delete' form_id=mscoursepos.id %}"class="btn btn-danger btn-sm">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+        <div class="alert alert-danger">
+          <strong>{{ message}}</strong>
+        </div>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+
+  {% endblock %}

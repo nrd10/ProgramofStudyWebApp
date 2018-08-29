@@ -1,0 +1,15 @@
+
+Dear Advisor,
+
+  The following number of each form type needs approval:
+  MEng forms: {{ meng }}
+  MS Course forms: {{ msc}}
+  MS Project forms: {{ msp }}
+  MS Thesis forms: {{ mst }}
+  PhD Bachelor forms: {{ phdb }}
+  PhD Master forms: {{ phdm }}
+
+  Please log in to the program of study course and either approve or reject each form.
+
+  Sincerely,
+  gradops@ece.duke.edu

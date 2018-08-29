@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+{% if usertype == "Advisor" %}
+  <h2>MS Advisor Page </h2>
+{% endif %}
+
+{% if usertype == "DGS" %}
+  <h2>MS DGS Page </h2>
+{% endif %}
+
+{% if usertype == "MS" %}
+  <h2>MS Student View Page </h2>
+{% endif %}
+
+<p class="lead">
+  Please click a button below to view its corresponding list of Program of Study Forms.
+</p>
+<p class="lead">
+{% buttons %}
+{% if usertype == "Advisor" %}
+  <p>
+    <a href="{% url 'advisor-mscourse' %}"class="btn btn-primary btn-lg btn-block">View Coursework MS Forms </a>
+  </p>
+  <p>
+    <a href="{% url 'advisor-msproject' %}"class="btn btn-primary btn-lg btn-block">View Project MS Forms </a>
+  </p>
+  <p>
+    <a href="{% url 'advisor-msthesis' %}"class="btn btn-primary btn-lg btn-block">View Thesis MS Forms </a>
+  </p>
+{% endif %}
+{% if usertype == "DGS" %}
+  <p>
+    <a href="{% url 'dgs-mscourse' %}"class="btn btn-primary btn-lg btn-block">View Coursework MS Forms </a>
+  </p>
+  <p>
+    <a href="{% url 'dgs-msproject' %}"class="btn btn-primary btn-lg btn-block">View Project MS Forms </a>
+  </p>
+  <p>
+    <a href="{% url 'dgs-msthesis' %}"class="btn btn-primary btn-lg btn-block">View Thesis MS Forms </a>
+  </p>
+{% endif %}
+{% if usertype == "MS" %}
+<p>
+  <a href="{% url 'mscourse' %}"class="btn btn-primary btn-lg btn-block">View My Coursework MS Forms </a>
+</p>
+<p>
+  <a href="{% url 'msproject' %}"class="btn btn-primary btn-lg btn-block">View My Project MS Forms </a>
+</p>
+<p>
+  <a href="{% url 'msthesis' %}"class="btn btn-primary btn-lg btn-block">View My Thesis MS Forms </a>
+</p>
+{% endif %}
+
+{% endbuttons %}
+
+{% endblock %}

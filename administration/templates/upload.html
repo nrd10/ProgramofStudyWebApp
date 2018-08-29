@@ -1,0 +1,55 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+<h2>Student User Upload Page </h2>
+
+<p class="lead">
+  Please upload a <b>csv</b> file with each row representing information on each student to upload a user successfully
+  to the website. <b> Note</b>: This page should only be used to create student accounts. If the import fails,
+  this will most likely be due to the fact that you are attempting to import a user that already exists in the database.
+  Make sure you are not attempting to import a user that already exists in the system.
+</p>
+
+
+
+<form action="{% url 'admin-student-upload' %}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+{% csrf_token %}
+<div class="form-group">
+    <label for="name" class="col-md-1 col-sm-3 col-xs-12 control-label">File: </label>
+    <div class="col-md-9">
+        <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-1 col-sm-3 col-xs-12 col-md-offset-1" style="margin-bottom:10px;">
+         <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+    </div>
+</div>
+</form>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+      {% if message.tags == "error" %}
+        <div class="alert alert-danger">
+          <strong>{{ message}}</strong>
+        </div>
+      {% else %}
+        <div class="alert alert-{{ message.tags }}">
+          <strong>{{ message}}</strong>
+        </div>
+      {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% endblock %}

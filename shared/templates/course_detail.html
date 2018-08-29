@@ -1,0 +1,78 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+
+
+{% block content %}
+
+{{form.media}}
+<h1>Course Detail Form</h1>
+
+<p>
+  <div class="row">
+      <div class="col-md-7">
+        Listing: <strong>{{ course.listing }}</strong>
+      </div>
+  </div>
+</p>
+
+<p>
+  <div class="row">
+      <div class="col-md-7">
+        Title: <strong>{{ course.title }}</strong>
+      </div>
+  </div>
+</p>
+
+<p>
+  <div class="row">
+      <div class="col-md-7">
+        Category: <strong>{{ course.display_category }}</strong>
+      </div>
+    </div>
+</p>
+
+<p>
+  <div class="row">
+      <div class="col-md-7">
+        Concentration: <strong>{{ course.display_concentration }}</strong>
+      </div>
+  </div>
+</p>
+
+
+
+{% buttons %}
+<a href="{% url 'admin-course-update' pk=course.id %}"class="btn btn-primary btn-sm">Update</a>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+  Delete</button>
+{% endbuttons %}
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deletion Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="{% url 'admin-course-delete' form_id=course.id %}"class="btn btn-danger btn-sm">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

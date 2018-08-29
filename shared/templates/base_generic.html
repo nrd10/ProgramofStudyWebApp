@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% block title %}<title>Program of Study Website</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-2">
+      {% block sidebar %}
+      <ul class="sidebar-nav">
+          <a href="{% url 'index' %}"class="btn btn-primary btn-sm">Home</a>
+
+
+          <!-- Admin -->
+          {% if perms.meng.MEng_Admin_View %}
+            <a href="{% url 'admin-database' %}"class="btn btn-primary btn-sm">Course Table Options</a>
+            <a href="{% url 'admin-search' %}"class="btn btn-primary btn-sm">Search Options</a>
+            <a href="{% url 'admin-user-options' %}"class="btn btn-primary btn-sm">User Options</a>
+
+          {% endif %}
+          {% if perms.meng.MEng_Admin_Create %}
+            <a href="{% url 'admin-create' %}"class="btn btn-primary btn-sm">Form Creation Options</a>
+          {% endif %}
+
+          <!-- DGS -->
+          {% if perms.meng.MEng_DGS_View %}
+            <a href="{% url 'dgs-meng-history' %}"class="btn btn-primary btn-sm">DGS View Form History</a>
+          {% endif %}
+
+          <!-- Advisor -->
+          {% if perms.meng.MEng_Advisor_View %}
+            <a href="{% url 'advisor-meng-history' %}"class="btn btn-primary btn-sm">Advisor View Form History</a>
+          {% endif %}
+          <!-- MEng Buttons -->
+          {% if perms.meng.MEng_Student_View %}
+            <a href="{% url 'meng' %}"class="btn btn-primary btn-sm">My MEng Forms</a>
+          {% endif %}
+          {% if perms.meng.MEng_Student_Create %}
+            <a href="{% url 'meng-create' %}"class="btn btn-primary btn-sm">Create MEng Form</a>
+          {% endif %}
+          {% if perms.meng.MEng_Advisor_View %}
+            <a href="{% url 'advisor-meng' %}"class="btn btn-primary btn-sm">View MEng Forms</a>
+          {% endif %}
+          {% if perms.meng.MEng_DGS_View %}
+            <a href="{% url 'dgs-meng' %}"class="btn btn-primary btn-sm">DGS View MEng Forms</a>
+          {% endif %}
+
+          <!-- MS Buttons -->
+          {% if perms.ms.MSc_Student_View or perms.ms.MSp_Student_View or perms.ms.MSt_Student_View %}
+            <a href="{% url 'ms-student' %}"class="btn btn-primary btn-sm">My M.S. Forms</a>
+          {% endif %}
+          {% if perms.ms.MSc_Student_Create or perms.ms.MSp_Student_Create or perms.ms.MSt_Student_Create %}
+            <a href="{% url 'ms-student-create' %}"class="btn btn-primary btn-sm">Create M.S. Forms</a>
+          {% endif %}
+          {% if perms.ms.MSc_Advisor_View or perms.ms.MSp_Advisor_View or perms.ms.MSt_Advisor_View %}
+            <a href="{% url 'ms-advisor' %}"class="btn btn-primary btn-sm">View M.S. Forms</a>
+          {% endif %}
+          {% if perms.ms.MSc_DGS_View or perms.ms.MSp_DGS_View or perms.ms.MSt_DGS_View %}
+            <a href="{% url 'ms-dgs' %}"class="btn btn-primary btn-sm">DGS View M.S. Forms</a>
+          {% endif %}
+
+          <!-- PHD Buttons  -->
+          {% if perms.phd.PHDBS_Student_View or perms.phd.PHDMS_Student_View %}
+            <a href="{% url 'phd-student' %}"class="btn btn-primary btn-sm">My PhD Forms</a>
+          {% endif %}
+          {% if perms.phd.PHDBS_Student_Create or perms.phd.PHDMS_Student_Create %}
+            <a href="{% url 'phd-student-create' %}"class="btn btn-primary btn-sm">Create PhD Forms</a>
+          {% endif %}
+          {% if perms.phd.PHDBS_Advisor_View or perms.phd.PHDMS_Advisor_View %}
+            <a href="{% url 'phd-advisor' %}"class="btn btn-primary btn-sm">View PhD Forms</a>
+          {% endif %}
+          {% if perms.phd.PHDBS_DGS_View or perms.phd.PHDMS_DGS_View %}
+            <a href="{% url 'phd-dgs' %}"class="btn btn-primary btn-sm">DGS View PhD Forms</a>
+          {% endif %}
+
+          <!-- User Auth buttons -->
+          {% if user.is_authenticated %}
+             <li>User: {{ request.user.get_username }}</li>
+            <a href="{% url 'logout'%}?next={{request.path}}"class="btn btn-primary btn-sm">Logout</a>
+          {% else %}
+            <!-- <a href="{% url 'login'%}?next={{request.path}}"class="btn btn-primary btn-sm">Login</a> -->
+            <a href="{% url 'admin-duke-oauth'%}"class="btn btn-primary btn-sm">Login</a>
+          {% endif %}
+      </ul>
+     {% endblock %}
+      </div>
+      <div class="col-sm-10 ">
+      {% block content %}{% endblock %}
+      {% block pagination %}
+        {% if is_paginated %}
+            <div class="pagination">
+                <span class="page-links">
+                    {% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+                    <span class="page-current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endif %}
+      {% endblock %}
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

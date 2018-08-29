@@ -1,0 +1,291 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+{{form.media}}
+
+<h1>Submitted PhD Bachelor Program of Study Form</h1>
+<h4>Date of Submission: <strong>{{ phdbachelorpos.submission }}</strong></h4>
+
+  <p> Name: <strong>{{ phdbachelorpos.owner.get_full_name }}</strong></p>
+  <p> Advisor: <strong>{{ phdbachelorpos.owner.advisor.get_full_name }}</strong> </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course I: <strong>{{ phdbachelorpos.gradececourseone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradeceoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradeceonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course II: <strong>{{ phdbachelorpos.gradececoursetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradecetwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradecetwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course III: <strong>{{ phdbachelorpos.gradececoursethree }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradecethreeterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradecethreegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course IV: <strong>{{ phdbachelorpos.gradececoursefour }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradecefourterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradecefourgrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course V: <strong>{{ phdbachelorpos.gradececoursefive }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradecefiveterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradecefivegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course VI: <strong>{{ phdbachelorpos.gradececoursesix }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradecesixterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradecesixgrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate Technical Elective I from ECE or other approved areas: <strong>{{ phdbachelorpos.gradtechcourseone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradtechoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradtechonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate Technical Elective II from ECE or other approved areas: <strong>{{ phdbachelorpos.gradtechcoursetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.gradtechtwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.gradtechtwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective I: <strong>{{ phdbachelorpos.electiveone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.electiveoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.electiveonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective II: <strong>{{ phdbachelorpos.electivetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ phdbachelorpos.electivetwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ phdbachelorpos.electivetwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+  {% ifequal phdbachelorpos.state "AdvisorPending" %}
+    <h3>Status: <strong class="text-warning">Pending Advisor Approval</strong></h3>
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal phdbachelorpos.state "DGSPending" %}
+    <h3>Status: <strong class="text-warning">Pending DGS Approval</strong></h3>
+  {% endifequal %}
+  </p>
+
+
+  <p>
+  {% ifequal phdbachelorpos.state "Approved" %}
+    <h3>Status: <strong class="text-success">Approved</strong></h3>
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal phdbachelorpos.state "AdvisorRejected" %}
+    <h3>Status: <strong class="text-danger">Rejected</strong></h3>
+    {% if usertype is "MEng" %}
+      You may now submit a new form, or resubmit this form.
+    {% else %}
+      This student may now submit a new form, or resubmit this form.
+    {% endif %}
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal phdbachelorpos.state "DGSRejected" %}
+    <h3>Status: <strong class="text-danger">Rejected</strong></h3>
+    {% if usertype is "MEng" %}
+      <p> You may now submit a new form, or resubmit this form.</p>
+    {% else %}
+      <p>This student may now submit a new form, or resubmit this form.</p>
+    {% endif %}
+  {% endifequal %}
+  </p>
+
+  {% buttons %}
+    {% if usertype == "PhD" %}
+      <a href="{% url 'phdbachelor-detail-update' pk=phdbachelorpos.id %}"class="btn btn-primary btn-sm">Update</a>
+    {% elif usertype == "Advisor" %}
+      <a href="{% url 'advisor-phdbachelor-approve' form_id=phdbachelorpos.id %}"class="btn btn-success btn-sm">Approve</a>
+      <a href="{% url 'advisor-phdbachelor-reject' form_id=phdbachelorpos.id %}"class="btn btn-danger btn-sm">Reject</a>
+    {% elif usertype == "DGS" %}
+      <a href="{% url 'dgs-phdbachelor-approve' form_id=phdbachelorpos.id %}"class="btn btn-success btn-sm">Approve</a>
+      <a href="{% url 'dgs-phdbachelor-reject' form_id=phdbachelorpos.id %}"class="btn btn-danger btn-sm">Reject</a>
+    {% elif usertype == "Administrator" %}
+      <a href="delete"class="btn btn-danger btn-sm">Delete</a>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+      Delete Modal</button>
+    {% endif %}
+  {% endbuttons %}
+
+  {% if phdbachelorpos.state == "AdvisorRejected" and usertype != "DGS" %}
+    <h3><strong>Advisor Rejection Comments</strong></h3>
+  {% endif %}
+
+  {% for comment in phdbachelorpos.comments.all %}
+    {% if comment.authortype == "Advisor" and phdbachelorpos.state == "AdvisorRejected" and usertype != "DGS" %}
+      <p>
+        <div class="row">
+            <div class="col-md-3">
+              Comment: <strong>{{ comment.text}}</strong>
+            </div>
+            <div class="col-md-4">
+              Comment Submission: <strong>{{ comment.created_date }}</strong>
+            </div>
+        </div>
+      </p>
+    {% endif %}
+  {% endfor %}
+
+  {% if phdbachelorpos.state == "DGSRejected" %}
+    <h3><strong>DGS Rejection Comments</strong></h3>
+  {% endif %}
+
+  {% for comment in phdbachelorpos.comments.all %}
+    {% if comment.authortype == "DGS" and phdbachelorpos.state == "DGSRejected" %}
+      <p>
+        <div class="row">
+            <div class="col-md-3">
+              Comment: <strong>{{ comment.text}}</strong>
+            </div>
+            <div class="col-md-4">
+              Submission Date: <strong>{{ comment.created_date }}</strong>
+            </div>
+        </div>
+      </p>
+    {% endif %}
+  {% endfor %}
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deletion Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <a href="{% url 'admin-phdbachelor-delete' form_id=phdbachelorpos.id %}"class="btn btn-danger btn-sm">Delete</a>
+          <button type="submit" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+        <div class="alert alert-danger">
+          <strong>{{ message}}</strong>
+        </div>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+
+  {% endblock %}

@@ -1,0 +1,140 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+  <h2>Administration Database Control Page </h2>
+
+<p class="lead">
+  Please click a button below to either import courses or update the courses already in the
+  database. <b>Note: Please check whether courses are already in the database before
+  running the Import Courses function. </b>. This function will import courses using Duke's API and
+  does not check whether courses are already in the database or not. As a result, if the database already
+  is populated with courses, running this function again will lead to duplicate courses in the database.
+</p>
+<p class="lead">
+  Use the Update Courses function to make updates to current courses in the database. This function checks
+  whether courses in the Duke API server have had any updates made to them such as updates to course names
+  or updates to the semester in which a course is offered. Please periodically run this function to make
+  updates to the course listing.
+  <b> Note: </b> This function uses course listing values to find each course within the website's database.
+  As a result, this function will not update a course's listing value if it is updated.
+</p>
+<p class="lead">
+{% buttons %}
+
+
+<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#updateModal">
+  Update All Courses</button>
+
+  <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#populateModal">
+    Import All Courses</button>
+
+    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#deleteModal">
+      Delete All Courses</button>
+
+      <a href="{% url 'admin-course-create' %}"class="btn btn-primary btn-lg btn-block">Create Course </a>
+
+
+{% endbuttons %}
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabelOne">Update Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to update the database?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="{% url 'admin-update' %}"class="btn btn-success btn-sm">Update Courses </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="populateModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabelTwo">Import Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to import these courses? This should only be done if the database has
+        no courses.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="{% url 'admin-populate-database' %}"class="btn btn-success btn-sm">Import Courses </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabelThree">Deletion Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete all of the courses in the database?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="{% url 'admin-fullcourse-delete' %}"class="btn btn-danger btn-sm">Delete All Courses</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+      {% if message.tags == "error" %}
+        <div class="alert alert-danger">
+          <strong>{{ message}}</strong>
+        </div>
+      {% else %}
+        <div class="alert alert-{{ message.tags }}">
+          <strong>{{ message}}</strong>
+        </div>
+      {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+  <h2>Administration User Control Page </h2>
+
+<p class="lead">
+  Please click a button below to create users. "Create New User"
+  will create individual student, admin, advisor or DGS accounts.
+</p>
+
+{% buttons %}
+<p>
+  <a href="{% url 'admin-user-create' %}"class="btn btn-primary btn-lg btn-block">Create New User </a>
+</p>
+<p>
+  <a href="{% url 'admin-student-upload' %}"class="btn btn-primary btn-lg btn-block">Upload Students </a>
+</p>
+{% endbuttons %}
+
+{% endblock %}

@@ -1,0 +1,287 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+{{form.media}}
+
+<h1>Submitted M.S. Project Program of Study Form</h1>
+<h4>Date of Submission: <strong>{{ msprojectpos.submission }}</strong></h4>
+
+  <p> Name: <strong>{{ msprojectpos.owner.get_full_name }}</strong></p>
+  <p> Advisor: <strong>{{ msprojectpos.owner.advisor.get_full_name }}</strong> </p>
+
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course I: <strong>{{ msprojectpos.gradececourseone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.gradeceoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.gradeceonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course II: <strong>{{ msprojectpos.gradececoursetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.gradecetwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.gradecetwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course III: <strong>{{ msprojectpos.gradececoursethree }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.gradecethreeterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.gradecethreegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Graduate ECE Course IV: <strong>{{ msprojectpos.gradececoursefour }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.gradecefourterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.gradecefourgrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective I: <strong>{{ msprojectpos.electiveone }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.electiveoneterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.electiveonegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective II: <strong>{{ msprojectpos.electivetwo }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.electivetwoterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.electivetwograde }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective III: <strong>{{ msprojectpos.electivethree }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.electivethreeterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.electivethreegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective IV: <strong>{{ msprojectpos.electivefour }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.electivefourterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.electivefourgrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Elective V: <strong>{{ msprojectpos.electivefive }}</strong>
+        </div>
+        <div class="col-md-2">
+          Term: <strong>{{ msprojectpos.electivefiveterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.electivefivegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+    <div class="row">
+        <div class="col-md-7">
+          Research Credit I Term: <strong>{{ msprojectpos.researchcourseterm }}</strong>
+        </div>
+        <div class="col-md-2">
+          Grade: <strong>{{ msprojectpos.researchcoursegrade }}</strong>
+        </div>
+    </div>
+  </p>
+
+  <p>
+  {% ifequal msprojectpos.state "AdvisorPending" %}
+    <h3>Status: <strong class="text-warning">Pending Advisor Approval</strong></h3>
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal msprojectpos.state "DGSPending" %}
+    <h3>Status: <strong class="text-warning">Pending DGS Approval</strong></h3>
+  {% endifequal %}
+  </p>
+
+
+  <p>
+  {% ifequal msprojectpos.state "Approved" %}
+    <h3>Status: <strong class="text-success">Approved</strong></h3>
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal msprojectpos.state "AdvisorRejected" %}
+    <h3>Status: <strong class="text-danger">Rejected</strong></h3>
+    {% if usertype is "MEng" %}
+      You may now submit a new form, or resubmit this form.
+    {% else %}
+      This student may now submit a new form, or resubmit this form.
+    {% endif %}
+  {% endifequal %}
+  </p>
+
+  <p>
+  {% ifequal msprojectpos.state "DGSRejected" %}
+    <h3>Status: <strong class="text-danger">Rejected</strong></h3>
+    {% if usertype is "MEng" %}
+      <p> You may now submit a new form, or resubmit this form.</p>
+    {% else %}
+      <p>This student may now submit a new form, or resubmit this form.</p>
+    {% endif %}
+  {% endifequal %}
+  </p>
+
+  {% buttons %}
+    {% if usertype == "MS" %}
+      <a href="{% url 'msproject-detail-update' pk=msprojectpos.id %}"class="btn btn-primary btn-sm">Update</a>
+    {% elif usertype == "Advisor" %}
+      <a href="{% url 'advisor-msproject-approve' form_id=msprojectpos.id %}"class="btn btn-success btn-sm">Approve</a>
+      <a href="{% url 'advisor-msproject-reject' form_id=msprojectpos.id %}"class="btn btn-danger btn-sm">Reject</a>
+    {% elif usertype == "DGS" %}
+      <a href="{% url 'dgs-msproject-approve' form_id=msprojectpos.id %}"class="btn btn-success btn-sm">Approve</a>
+      <a href="{% url 'dgs-msproject-reject' form_id=msprojectpos.id %}"class="btn btn-danger btn-sm">Reject</a>
+    {% elif usertype == "Administrator" %}
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+      Delete</button>
+    {% endif %}
+  {% endbuttons %}
+
+  {% if msprojectpos.state == "AdvisorRejected" and usertype != "DGS" %}
+    <h3><strong>Advisor Rejection Comments</strong></h3>
+  {% endif %}
+
+  {% for comment in msprojectpos.comments.all %}
+    {% if comment.authortype == "Advisor" and msprojectpos.state == "AdvisorRejected" and usertype != "DGS" %}
+      <p>
+        <div class="row">
+            <div class="col-md-3">
+              Comment: <strong>{{ comment.text}}</strong>
+            </div>
+            <div class="col-md-4">
+              Comment Submission: <strong>{{ comment.created_date }}</strong>
+            </div>
+        </div>
+      </p>
+    {% endif %}
+  {% endfor %}
+
+  {% if msprojectpos.state == "DGSRejected" %}
+    <h3><strong>DGS Rejection Comments</strong></h3>
+  {% endif %}
+
+  {% for comment in msprojectpos.comments.all %}
+    {% if comment.authortype == "DGS" and msprojectpos.state == "DGSRejected" %}
+      <p>
+        <div class="row">
+            <div class="col-md-3">
+              Comment: <strong>{{ comment.text}}</strong>
+            </div>
+            <div class="col-md-4">
+              Submission Date: <strong>{{ comment.created_date }}</strong>
+            </div>
+        </div>
+      </p>
+    {% endif %}
+  {% endfor %}
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deletion Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <a href="{% url 'admin-msproject-delete' form_id=msprojectpos.id %}"class="btn btn-danger btn-sm">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+        <div class="alert alert-danger">
+          <strong>{{ message}}</strong>
+        </div>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+
+  {% endblock %}

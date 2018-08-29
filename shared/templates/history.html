@@ -1,0 +1,73 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="{% url 'advisor-meng-history' %}">MEng Previously Marked Forms</a></li>
+  <li role="presentation"><a href="{% url 'advisor-mscourse-history' %}">MS Course Previously Marked Forms</a></li>
+  <li role="presentation"><a href="{% url 'advisor-msproject-history' %}">MS Project Previously Marked Forms</a></li>
+  <li role="presentation"><a href="{% url 'advisor-msthesis-history' %}">MS Thesis Previously Marked Forms</a></li>
+  <li role="presentation"><a href="{% url 'advisor-phdbachelor-history' %}">PhD Bachelor Previously Marked Forms</a></li>
+  <li role="presentation"><a href="{% url 'advisor-phdmaster-history' %}">PhD Master Previously Marked Forms</a></li>
+</ul>
+
+{% if history == 'MEng' %}
+  <h1> MEng Program Of Study Forms </h1>
+{% elif history == 'MSc' %}
+  <h1> M.S. Coursework Program Of Study Forms </h1>
+{% elif history == 'MSp' %}
+  <h1> M.S. Project Program Of Study Forms </h1>
+{% elif history == 'MSt' %}
+  <h1> M.S. Thesis Program Of Study Forms </h1>
+{% elif history == 'PHDB' %}
+  <h1> PhD Bachelor Program Of Study Forms </h1>
+{% elif history == 'PHDM' %}
+  <h1> PhD Master Program Of Study Forms </h1>
+{% endif %}
+
+    {% if form_list %}
+        <h3>Forms You Have Approved</h3>
+      <ol>
+      {% for form in form_list %}
+        {% if form.state == "DGSPending" %}
+          <li>
+            <a href="{{ form.get_advisor_url }}"><strong>{{ form.owner.get_full_name }}: {{ form.submission }} </strong> </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      </ol>
+      {% if dgsapproved == 0 %}
+        <p> There are no previously approved forms.
+      {% endif %}
+      {% if advisorapproved == 0 %}
+        <p> There are no previously approved forms.
+      {% endif %}
+
+        <h3>Forms You Have Rejected</h3>
+      <ol>
+      {% for form in form_list %}
+        {% if form.state == "AdvisorRejected" %}
+          <li>
+            <a href="{{ form.get_advisor_url }}"><strong>{{ form.owner.get_full_name }}: {{ form.submission }} </strong> </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      </ol>
+      {% if advisorrejected == 0 %}
+        <p> There are no previously rejected forms. </p>
+      {% endif %}
+  {% else %}
+    <p class="lead">
+       There are no previously marked forms or all previously marked forms have been approved or rejected by the DGS.
+    </p>
+  {% endif %}
+
+
+
+{% endblock %}

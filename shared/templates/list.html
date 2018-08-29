@@ -1,0 +1,100 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+{% if list == 'MEng' %}
+  <h1> MEng Program Of Study Forms </h1>
+{% elif list == 'MSc' %}
+  <h1> M.S. Coursework Program Of Study Forms </h1>
+{% elif list == 'MSp' %}
+  <h1> M.S. Project Program Of Study Forms </h1>
+{% elif list == 'MSt' %}
+  <h1> M.S. Thesis Program Of Study Forms </h1>
+{% elif list == 'PHDB' %}
+  <h1> PhD Bachelor Program Of Study Forms </h1>
+{% elif list == 'PHDM' %}
+  <h1> PhD Master Program Of Study Forms </h1>
+{% endif %}
+
+
+
+
+    <!-- Students  -->
+      {% if usertype == "MEng" or usertype == "MS" or usertype == "PhD" %}
+        <h3>Forms Awaiting Approval</h3>
+        <ol>
+        {% for form in form_list %}
+          {% if form.state == "DGSPending" or form.state == "AdvisorPending" %}
+            <li>
+              <a href="{{ form.get_absolute_url }}"><strong>{{ form.submission }}</strong> </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </ol>
+        {% if pendingcount == 0 %}
+          <p> There are no forms awaiting approval. </p>
+        {% endif %}
+        <h3>Rejected Forms</h3>
+        <ol>
+        {% for form in form_list %}
+          {% if form.state == "DGSRejected" or form.state == "AdvisorRejected" %}
+            <li>
+              <a href="{{ form.get_absolute_url }}"><strong>{{ form.submission }}</strong> </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </ol>
+        {% if rejectedcount == 0 %}
+          <p> There are no rejected form. </p>
+        {% endif %}
+        <h3>Approved Form</h3>
+        <ol>
+        {% for form in form_list %}
+          {% if form.state == "Approved" %}
+            <li>
+              <a href="{{ form.get_absolute_url }}"><strong>{{ form.submission }}</strong> </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </ol>
+        {% if approvedcount == 0 %}
+          <p> There are no approved forms. </p>
+        {% endif %}
+      <!-- Advisor -->
+      {% elif usertype  == "Advisor" %}
+        <h3>Forms Awaiting Approval</h3>
+        <ol>
+        {% for form in form_list %}
+          {% if form.state == "AdvisorPending" %}
+            <li>
+              <a href="{{ form.get_advisor_url }}"><strong>{{ form.owner.get_full_name }}: {{ form.submission }} </strong> </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        </ol>
+        {% if advisorcount == 0 %}
+          <p> There are no forms awaiting approval. </p>
+        {% endif %}
+        {% buttons %}
+          {% if list == 'MEng' %}
+            <a href="{% url 'advisor-meng-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+          {% elif list == 'MSc' %}
+            <a href="{% url 'advisor-mscourse-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+          {% elif list == 'MSp' %}
+            <a href="{% url 'advisor-msproject-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+          {% elif list == 'MSt' %}
+            <a href="{% url 'advisor-msthesis-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+          {% elif list == 'PHDB' %}
+            <a href="{% url 'advisor-phdbachelor-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+          {% elif list == 'PHDM' %}
+            <a href="{% url 'advisor-phdmaster-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+          {% endif %}
+        {% endbuttons %}
+      {% endif %}
+{% endblock %}

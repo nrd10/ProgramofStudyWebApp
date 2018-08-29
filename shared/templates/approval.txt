@@ -1,0 +1,8 @@
+Dear {{ first_name }},
+
+  Your program of study form has been approved. If you need to
+  make changes you may submit a new form.
+
+
+  Sincerely,
+  gradops@ece.duke.edu

@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+<h2>MS Student Create Page </h2>
+<p class="lead">
+  Please click a button below to create a corresponding Program of Study Form.
+</p>
+<p class="lead">
+{% buttons %}
+<p>
+  <a href="{% url 'mscourse-create' %}"class="btn btn-primary btn-lg btn-block">Create Coursework MS Form </a>
+</p>
+<p>
+  <a href="{% url 'msproject-create' %}"class="btn btn-primary btn-lg btn-block">Create Project MS Form </a>
+</p>
+<p>
+  <a href="{% url 'msthesis-create' %}"class="btn btn-primary btn-lg btn-block">Create Thesis MS Form </a>
+</p>
+
+{% endbuttons %}
+
+
+{% endblock %}

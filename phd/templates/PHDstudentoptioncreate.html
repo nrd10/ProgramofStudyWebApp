@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+<h2>PhD Student Create Page </h2>
+<p class="lead">
+  Please click a button below to create a corresponding Program of Study Form.
+</p>
+<p class="lead">
+{% buttons %}
+<p>
+  <a href="{% url 'phdbachelor-create' %}"class="btn btn-primary btn-lg btn-block">Create PhD Bachelor Form </a>
+</p>
+<p>
+  <a href="{% url 'phdmaster-create' %}"class="btn btn-primary btn-lg btn-block">Create PhD Master Form </a>
+</p>
+
+{% endbuttons %}
+
+
+{% endblock %}

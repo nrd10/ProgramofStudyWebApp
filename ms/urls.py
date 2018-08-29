@@ -1,0 +1,75 @@
+from django.urls import path, include
+from django.conf.urls import url
+from ms import views
+
+urlpatterns = [
+    #URLs To Pick Between 3 Options
+    path('studentview/', views.msstudentoption, name='ms-student'),
+    path('studentcreate/', views.msstudentoptioncreate, name='ms-student-create'),
+    path('advisorview/', views.msadvisoroption, name='ms-advisor'),
+    path('dgsview/', views.msdgsoption, name='ms-dgs'),
+
+    #MS Coursework URLS
+    path('course/', views.MSCourseListView.as_view(), name='mscourse'),
+    path('course/<int:pk>', views.MSCourseDetailView.as_view(), name='mscourse-detail'),
+    path('course/<int:pk>/update', views.MSCourseUpdateView.as_view(), name='mscourse-detail-update'),
+    path('course/advisor/',views.MSCourseAdvisorListView.as_view(), name='advisor-mscourse'),
+    path('course/advisor/<int:pk>', views.MSCourseAdvisorDetailView.as_view(), name='advisor-mscourse-detail'),
+    path('course/advisor/history/', views.MSCourseAdvisorHistoryView.as_view(), name='advisor-mscourse-history'),
+    url(r'^course/advisor/advisorapprove/(?P<form_id>[0-9]+)/$', views.mscourseadvisorapprove, name='advisor-mscourse-approve'),
+    url(r'^course/advisor/advisorreject/(?P<form_id>[0-9]+)/$', views.mscourseadvisorcomment, name='advisor-mscourse-reject'),
+    path('course/dgs/',views.MSCourseDGSListView.as_view(), name='dgs-mscourse'),
+    path('course/dgs/<int:pk>', views.MSCourseDGSDetailView.as_view(), name='dgs-mscourse-detail'),
+    path('course/dgs/history/',views.MSCoursePOSsearch, name='dgs-mscourse-history'),
+    # path('course/dgs/history/',views.MSCourseDGSHistoryView.as_view(), name='dgs-mscourse-history'),
+    url(r'^course/dgs/dgsapprove/(?P<form_id>[0-9]+)/$', views.mscoursedgsapprove, name='dgs-mscourse-approve'),
+    url(r'^course/dgs/dgsreject/(?P<form_id>[0-9]+)/$', views.mscoursedgscomment, name='dgs-mscourse-reject'),
+    path('course/create/', views.MSCoursePOSCreate.as_view(), name='mscourse-create'),
+    path('course/admin/<int:pk>', views.AdminMSCourseDetailView.as_view(), name='admin-mscourse-detail'),
+    path('course/admin/create', views.AdminMSCoursePOSCreate.as_view(), name='admin-mscourse-create'),
+    path('course/admin/history/', views.AdminMSCoursePOSsearch, name='admin-mscourse-history'),
+    url(r'^course/admin/(?P<form_id>[0-9]+)/delete$', views.mscoursedelete, name='admin-mscourse-delete'),
+
+    #MS Project URLS
+    path('project/', views.MSProjectListView.as_view(), name='msproject'),
+    path('project/<int:pk>', views.MSProjectDetailView.as_view(), name='msproject-detail'),
+    path('project/<int:pk>/update', views.MSProjectUpdateView.as_view(), name='msproject-detail-update'),
+    path('project/advisor/',views.MSProjectAdvisorListView.as_view(), name='advisor-msproject'),
+    path('project/advisor/<int:pk>', views.MSProjectAdvisorDetailView.as_view(), name='advisor-msproject-detail'),
+    path('project/advisor/history/', views.MSProjectAdvisorHistoryView.as_view(), name='advisor-msproject-history'),
+    url(r'^project/advisor/advisorapprove/(?P<form_id>[0-9]+)/$', views.msprojectadvisorapprove, name='advisor-msproject-approve'),
+    url(r'^project/advisor/advisorreject/(?P<form_id>[0-9]+)/$', views.msprojectadvisorcomment, name='advisor-msproject-reject'),
+    path('project/dgs/',views.MSProjectDGSListView.as_view(), name='dgs-msproject'),
+    path('project/dgs/<int:pk>', views.MSProjectDGSDetailView.as_view(), name='dgs-msproject-detail'),
+    path('project/dgs/history/',views.MSProjectPOSsearch, name='dgs-msproject-history'),
+    # path('project/dgs/history/',views.MSProjectDGSHistoryView.as_view(), name='dgs-msproject-history'),
+    url(r'^project/dgs/dgsapprove/(?P<form_id>[0-9]+)/$', views.msprojectdgsapprove, name='dgs-msproject-approve'),
+    url(r'^project/dgs/dgsreject/(?P<form_id>[0-9]+)/$', views.msprojectdgscomment, name='dgs-msproject-reject'),
+    path('project/create/', views.MSProjectPOSCreate.as_view(), name='msproject-create'),
+    path('project/admin/<int:pk>', views.AdminMSProjectDetailView.as_view(), name='admin-msproject-detail'),
+    path('project/admin/create', views.AdminMSProjectPOSCreate.as_view(), name='admin-msproject-create'),
+    path('project/admin/history/', views.AdminMSProjectPOSsearch, name='admin-msproject-history'),
+    url(r'^project/admin/(?P<form_id>[0-9]+)/delete$', views.msprojectdelete, name='admin-msproject-delete'),
+
+    #MS Thesis URL
+    path('thesis/', views.MSThesisListView.as_view(), name='msthesis'),
+    path('thesis/<int:pk>', views.MSThesisDetailView.as_view(), name='msthesis-detail'),
+    path('thesis/<int:pk>/update', views.MSThesisUpdateView.as_view(), name='msthesis-detail-update'),
+    path('thesis/advisor/',views.MSThesisAdvisorListView.as_view(), name='advisor-msthesis'),
+    path('thesis/advisor/<int:pk>', views.MSThesisAdvisorDetailView.as_view(), name='advisor-msthesis-detail'),
+    path('thesis/advisor/history/', views.MSThesisAdvisorHistoryView.as_view(), name='advisor-msthesis-history'),
+    url(r'^thesis/advisor/advisorapprove/(?P<form_id>[0-9]+)/$', views.msthesisadvisorapprove, name='advisor-msthesis-approve'),
+    url(r'^thesis/advisor/advisorreject/(?P<form_id>[0-9]+)/$', views.msthesisadvisorcomment, name='advisor-msthesis-reject'),
+    path('thesis/dgs/',views.MSThesisDGSListView.as_view(), name='dgs-msthesis'),
+    path('thesis/dgs/<int:pk>', views.MSThesisDGSDetailView.as_view(), name='dgs-msthesis-detail'),
+    path('thesis/dgs/history/',views.MSThesisPOSsearch, name='dgs-msthesis-history'),
+    # path('thesis/dgs/history/',views.MSThesisDGSHistoryView.as_view(), name='dgs-msthesis-history'),
+    url(r'^thesis/dgs/dgsapprove/(?P<form_id>[0-9]+)/$', views.msthesisdgsapprove, name='dgs-msthesis-approve'),
+    url(r'^thesis/dgs/dgsreject/(?P<form_id>[0-9]+)/$', views.msthesisdgscomment, name='dgs-msthesis-reject'),
+    path('thesis/create/', views.MSThesisPOSCreate.as_view(), name='msthesis-create'),
+    path('thesis/admin/<int:pk>', views.AdminMSThesisDetailView.as_view(), name='admin-msthesis-detail'),
+    path('thesis/admin/create', views.AdminMSThesisPOSCreate.as_view(), name='admin-msthesis-create'),
+    path('thesis/admin/history/', views.AdminMSThesisPOSsearch, name='admin-msthesis-history'),
+    url(r'^thesis/admin/(?P<form_id>[0-9]+)/delete$', views.msthesisdelete, name='admin-msthesis-delete'),
+
+]

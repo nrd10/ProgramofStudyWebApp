@@ -1,0 +1,56 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+{% if usertype == "Advisor" %}
+  <h2>PhD Advisor Page </h2>
+{% endif %}
+
+{% if usertype == "DGS" %}
+  <h2>PhD DGS Page </h2>
+{% endif %}
+
+{% if usertype == "PhD" %}
+  <h2>PhD Student Page </h2>
+{% endif %}
+
+<p class="lead">
+  Please click a button below to view its corresponding list of Program of Study Forms.
+</p>
+<p class="lead">
+{% buttons %}
+{% if usertype == "Advisor" %}
+  <p>
+    <a href="{% url 'advisor-phdbachelor' %}"class="btn btn-primary btn-lg btn-block">View PhD Bachelor Forms </a>
+  </p>
+  <p>
+    <a href="{% url 'advisor-phdmaster' %}"class="btn btn-primary btn-lg btn-block">View PhD Master Forms </a>
+  </p>
+{% endif %}
+{% if usertype == "DGS" %}
+  <p>
+    <a href="{% url 'dgs-phdbachelor' %}"class="btn btn-primary btn-lg btn-block">View PhD Bachelor Forms </a>
+  </p>
+  <p>
+    <a href="{% url 'dgs-phdmaster' %}"class="btn btn-primary btn-lg btn-block">View PhD Master Forms </a>
+  </p>
+{% endif %}
+
+{% if usertype == "PhD" %}
+<p>
+  <a href="{% url 'phdbachelor' %}"class="btn btn-primary btn-lg btn-block">View My PhD Bachelor Forms </a>
+</p>
+<p>
+  <a href="{% url 'phdmaster' %}"class="btn btn-primary btn-lg btn-block">View My PhD Master Forms </a>
+</p>
+{% endif %}
+
+{% endbuttons %}
+
+{% endblock %}

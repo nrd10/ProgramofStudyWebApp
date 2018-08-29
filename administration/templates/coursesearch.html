@@ -1,0 +1,138 @@
+{% extends "base_generic.html" %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load widget_tweaks %}
+{% load class_tag %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+{{form.media}}
+{{ form.media.css }}
+
+
+<h1>Course Search Form</h1>
+<p class="lead">
+   Use the fields below to search for a specific course. Use the link to view details about or
+   update the course.
+</p>
+
+
+<form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.custom_listing.label_tag }}
+          {% render_field filter.form.custom_listing class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.custom_title.label_tag }}
+          {% render_field filter.form.custom_title class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.concentration.label_tag }}
+          {% render_field filter.form.concentration class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.category.label_tag }}
+          {% render_field filter.form.category class="form-control" %}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  </form>
+
+  <table class="table table-bordered">
+     <thead>
+       <tr>
+         <th>Listing</th>
+         <th>Title</th>
+         <th>View Details</th>
+       </tr>
+     </thead>
+     <tbody>
+       {% for form in users %}
+        <tr>
+          <td>{{ form.listing }}</td>
+          <td>{{ form.title }}</td>
+          <td><a href="{{ form.get_absolute_url }}"><strong>{{ form.id }}</strong> </a></td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="paginator">
+    {% with request.get_full_path as querystring %}
+        <ul class="pagination">
+            <!-- Previous page section -->
+            {% if users.has_previous %}
+                {% if 'search' in querystring %}
+                    {% if 'page' in querystring %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring|slice:":-7" }}&page={{ page|add:"-1" }}">Prev</a>
+                        </li>
+                    {% else %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring }}?custom_listing=&custom_title=&page={{ page|add:"-1" }}">Prev</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="paginator {% if pages.number == page %}active{% endif %}">
+                        <a href="?page={{ page|add:"-1" }}">Prev</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            <!-- All pages section -->
+            {% for page in users.paginator.page_range %}
+                {% if 'search' in querystring %}
+                    {% if 'page' in querystring %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring|slice:":-7" }}&page={{ page }}">{{ page }}</a>
+                        </li>
+                    {% else %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring }}?custom_listing=&custom_title=&page={{ page }}">{{ page }}</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="paginator {% if pages.number == page %}active{% endif %}">
+                        <a href="?custom_listing=&custom_title=?page={{ page }}">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Next page section -->
+            {% if users.has_next %}
+                {% if 'search' in querystring %}
+                    {% if 'page' in querystring %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring|slice:":-7" }}&page={{ page|add:"1" }}">Next</a>
+                        </li>
+                    {% else %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring }}?custom_listing=&custom_title=&page={{ page|add:"1" }}">Next</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="paginator {% if pages.number == page %}active{% endif %}">
+                        <a href="?custom_listing=&custom_title=?page={{ page|add:"1" }}">Next</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+    {% endwith %}
+
+</div>
+
+
+{% endblock %}

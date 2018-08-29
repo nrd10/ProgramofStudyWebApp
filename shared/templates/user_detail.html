@@ -1,0 +1,56 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+
+
+{% block content %}
+
+{{form.media}}
+<h1>User Detail Form</h1>
+
+  <p>First Name: <strong>{{ user.first_name }}</strong> </p>
+  <p>Last Name: <strong>{{ user.last_name }}</strong> </p>
+  <p>Net ID: <strong>{{ user.netid }}</strong> </p>
+  <p>Student ID/EmplID: <strong>{{ user.student_id }}</strong> </p>
+  <p> Advisor: <strong>{{ user.advisor.first_name }} {{ user.advisor.last_name }}</strong> </p>
+  <p> User Type: <strong>{{ user.user_type }}</strong> </p>
+
+
+
+  {% buttons %}
+  <a href="{% url 'admin-user-update' pk=user.id %}"class="btn btn-primary btn-sm">Update</a>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+    Delete</button>
+
+  {% endbuttons %}
+
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deletion Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <a href="{% url 'admin-user-delete' form_id=user.id %}"class="btn btn-danger btn-sm">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

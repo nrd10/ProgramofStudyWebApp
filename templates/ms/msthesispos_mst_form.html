@@ -1,0 +1,211 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+
+
+{% block content %}
+
+{{form.media}}
+<h1>ECE M.S. Thesis Program of Study Form Creation Page</h1>
+<h3>Instructions</h3>
+<p class="lead">
+  Please fill out the form below with your proposed or updated program of study. Each concentration course
+  must correspond to a course within a specific concentration. Each Graduate Technical Elective must be a
+  500 level or greater course. Only Elective courses may be used for Independent Studies or undergraduate
+  (listings with 300/400) level courses. You are only allowed to have 2 Independent Studies or 2 300/400
+  level courses or 1 Independent Study and 1 300/400 level course.
+</p>
+<p class="lead">
+  <b>Note:</b> Although students may pick courses that may not be strictly classified as STEM courses for
+  their Electives, submitted forms with non traditional electives may result in rejection. If this is the first
+  form you are filling, please leave the Grade section for each course blank. <strong> Please type an extra space between
+  course department and actual course listing to find each course e.g. Type ECE  &nbsp; 899 instead of ECE 899. </strong>
+</p>
+<form action="" method="post">
+    {% csrf_token %}
+
+
+    {% if usertype == "Administrator" %}
+      <div class="row">
+          <div class="col-md-3">
+            {%  bootstrap_field form.owner %}
+          </div>
+      </div>
+    {% endif %}
+
+
+<!-- Graduate ECE Courses -->
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.gradececourseone %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradeceoneterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradeceonegrade %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.gradececoursetwo %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradecetwoterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradecetwograde %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.gradececoursethree %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradecethreeterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradecethreegrade %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.gradececoursefour %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradecefourterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.gradecefourgrade %}
+        </div>
+    </div>
+
+
+    <!-- Electives  -->
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.electiveone %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electiveoneterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electiveonegrade %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.electivetwo %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electivetwoterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electivetwograde %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.electivethree %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electivethreeterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electivethreegrade %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.electivefour %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electivefourterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.electivefourgrade %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.researchcourseterm %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.researchcoursegrade %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+          {%  bootstrap_field form.researchcoursetermtwo %}
+        </div>
+        <div class="col-md-2">
+          {%  bootstrap_field form.researchcoursetwograde %}
+        </div>
+    </div>
+
+    {% buttons %}
+    <!-- <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')">Submit</button> -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitModal">
+      Submit</button>
+
+    {% endbuttons %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Submission Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to submit?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+</form>
+
+{% if form.non_field_errors %}
+	<!-- Error messaging for Non Field Errors -->
+	<div id="errors">
+		<div class="inner">
+			<p>There were some errors in the information you entered. Please correct the following:</p>
+			<ul>
+        {% for error in form.non_field_errors %}
+          <div class="alert alert-danger">
+            <strong>{{ error | escape}}</strong>
+          </div>
+        {% endfor %}
+			</ul>
+		</div
+	</div>
+	<!-- /Error messaging -->
+{% endif %}
+
+{% endblock %}

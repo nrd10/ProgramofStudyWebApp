@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load widget_tweaks %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+{{form.media}}
+
+    <h1>Comment Explaining Form Rejection</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+
+      {% for field in form.visible_fields %}
+        <div class="form-group">
+          {% render_field field class="form-control" %}
+          {% if field.help_text %}
+            <small class="form-text text-muted">{{ field.help_text }}</small>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="save btn btn-danger">Submit Comment & Reject Form</button>
+       {% if user.user_type == "Advisor" %}
+        <a href="{% url 'advisor-meng' %}"class="btn btn-primary">Cancel</a>
+       {% elif user.user_type == "DGS" %}
+       <a href="{% url 'dgs-meng' %}"class="btn btn-primary">Cancel</a>
+       {% endif %}
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,349 @@
+Listing: ECE  110L Title: Fundamentals of Electrical and Computer Engineering Term: FALL-SPRNG
+Listing: ECE  230L Title: Introduction to Microelectronic Devices and Circuits Term: FALL-SPRNG
+Listing: ECE  250D Title: Computer Architecture Term: FALL-SPRNG
+Listing: ECE  270L Title: Introduction to Electromagnetic Fields Term: FALL-SPRNG
+Listing: ECE  280L Title: Introduction to Signals and Systems Term: FALL-SPRNG
+Listing: ECE  290 Title: Special Topics in Electrical and Computer Engineering Term: FALL-SPRNG
+Listing: ECE  291 Title: Projects in Electrical and Computer Engineering Term: FALL
+Listing: ECE  292 Title: Projects in Electrical and Computer Engineering Term: SPRING
+Listing: ECE  311 Title: Thermal Physics Term: SPRING
+Listing: ECE  330L Title: Fundamentals of Microelectronic Devices Term: FALL
+Listing: ECE  331L Title: Fundamentals of Microelectronic Circuits Term: FALL-SPRNG
+Listing: ECE  340L Title: Optics and Photonics Term: FALL
+Listing: ECE  341L Title: Solar Cells Term: SPRING
+Listing: ECE  350L Title: Digital Systems Term: SPRING
+Listing: ECE  353 Title: Introduction to Operating Systems Term: UNKNOWN
+Listing: ECE  356 Title: Computer Network Architecture Term: FALL
+Listing: ECE  363L Title: Electric Vehicle Project Term: FALL
+Listing: ECE  364 Title: Performance and Technology: Composition Workshop Term: FALL-SPRNG
+Listing: ECE  380 Title: Introduction to Random Signals and Noise Term: SPRING
+Listing: ECE  381 Title: Fundamentals of Digital Signal Processing Term: FALL
+Listing: ECE  382 Title: Linear Control Systems Term: SPRING
+Listing: ECE  383 Title: Introduction to Robotics and Automation Term: FALL
+Listing: ECE  384LA Title: Sound in the Sea: Introduction to Marine Bioacoustics Term: UNKNOWN
+Listing: ECE  391 Title: Projects in Electrical and Computer Engineering Term: FALL
+Listing: ECE  392 Title: Projects in Electrical and Computer Engineering Term: SPRING
+Listing: ECE  431 Title: Power Electronic Circuits for Energy Conversion Term: OCCASIONAL
+Listing: ECE  449 Title: Sensors and Sensor Interface Design Term: SPRING
+Listing: ECE  458 Title: Engineering Software for Maintainability Term: SPRING
+Listing: ECE  459 Title: Introduction to Embedded Systems Term: FALL
+Listing: ECE  461 Title: Ocean Engineering Term: FALL
+Listing: ECE  483 Title: Introduction to Digital Communication Systems Term: FALL-SPRNG
+Listing: ECE  485 Title: Digital Audio and Acoustic Signal Processing Term: SPRING
+Listing: ECE  486 Title: Wireless Communication Systems Term: FALL-SPRNG
+Listing: ECE  488 Title: Digital Image and Multidimensional Processing Term: FALL-SPRNG
+Listing: ECE  489 Title: Advanced Robot System Design Term: SPRING
+Listing: ECE  490D Title: Special Topics in Electrical and Computer Engineering Term: FALL-SPRNG
+Listing: ECE  490L Title: Special Topics in Electrical and Computer Engineering Term: FALL-SPRNG
+Listing: ECE  493 Title: Projects in Electrical and Computer Engineering Term: FALL
+Listing: ECE  494 Title: Projects in Electrical and Computer Engineering Term: SPRING
+Listing: ECE  495 Title: Special Topics in Electrical and Computer Engineering Term: FALL
+Listing: ECE  496 Title: Special Topics in Electrical and Computer Engineering Term: SPRING
+Listing: ECE  499 Title: ECE Professional Development Term: FALL-SPRNG
+Listing: ECE  511 Title: Foundations of Nanoscale Science and Technology Term: FALL
+Listing: ECE  512 Title: Emerging Nanoelectronic Devices Term: SPRING
+Listing: ECE  521 Title: Quantum Mechanics Term: OCCASIONAL
+Listing: ECE  522 Title: Introduction to Micro-Electromechanical Systems (MEMS) Term: UNKNOWN
+Listing: ECE  523 Title: Quantum Information Science Term: OCCASIONAL
+Listing: ECE  524 Title: Introduction to Solid-State Physics Term: UNKNOWN
+Listing: ECE  525 Title: Semiconductor Physics Term: UNKNOWN
+Listing: ECE  526 Title: Semiconductor Devices for Integrated Circuits Term: FALL
+Listing: ECE  527 Title: Analog Integrated Circuits Term: UNKNOWN
+Listing: ECE  528 Title: Integrated Circuit Engineering Term: SPRING
+Listing: ECE  529 Title: Digital Integrated Circuits Term: SPRING
+Listing: ECE  531 Title: Power Electronic Circuits for Energy Conversion Term: OCCASIONAL
+Listing: ECE  532 Title: Analog Integrated Circuit Design Term: SPRING
+Listing: ECE  533 Title: Biochip Engineering Term: FALL
+Listing: ECE  534 Title: CAD For Mixed-Signal Circuits Term: OCCASIONAL
+Listing: ECE  536 Title: Synthesis and Verification of VLSI Systems Term: OCCASIONAL
+Listing: ECE  537 Title: Radiofrequency (RF) Transceiver Design Term: OCCASIONAL
+Listing: ECE  538 Title: VLSI System Testing Term: SPRING
+Listing: ECE  539 Title: CMOS VLSI Design Methodologies Term: FALL
+Listing: ECE  541 Title: Advanced Optics Term: OCCASIONAL
+Listing: ECE  545 Title: Foundations of Nanoelectronics & Nanophotonics Term: SPRING
+Listing: ECE  546 Title: Optoelectronic Devices Term: FALL
+Listing: ECE  549 Title: Optics and Photonics Seminar Series Term: UNKNOWN
+Listing: ECE  550D Title: Fundamentals of Computer Systems and Engineering Term: FALL
+Listing: ECE  551D Title: Programming, Data Structures, and Algorithms in C++ Term: FALL
+Listing: ECE  552 Title: Advanced Computer Architecture I Term: FALL
+Listing: ECE  553 Title: Compiler Construction Term: SPRING
+Listing: ECE  554 Title: Fault-Tolerant and Testable Computer Systems Term: FALL
+Listing: ECE  555 Title: Probability for Electrical and Computer Engineers Term: FALL
+Listing: ECE  556 Title: Wireless Networking and Mobile Computing Term: OCCASIONAL
+Listing: ECE  557 Title: Performance and Reliability of Computer Networks Term: OCCASIONAL
+Listing: ECE  558 Title: Computer Networks and Distributed Systems Term: SPRING
+Listing: ECE  559 Title: Advanced Digital System Design Term: FALL-SPRNG
+Listing: ECE  561 Title: Datacenter Architecture Term: FALL-SPRNG
+Listing: ECE  562 Title: Energy-Efficient Computer Systems Term: FALL
+Listing: ECE  563 Title: Cloud Computing Term: SPRING
+Listing: ECE  564 Title: Mobile Application Development Term: FALL
+Listing: ECE  565 Title: Performance Optimization & Parallelism Term: FALL
+Listing: ECE  566 Title: Enterprise Storage Architecture Term: FALL
+Listing: ECE  571 Title: Electromagnetic Theory Term: FALL
+Listing: ECE  572 Title: Electromagnetic Communication Systems Term: FALL
+Listing: ECE  573 Title: Optical Communication Systems Term: OCCASIONAL
+Listing: ECE  574 Title: Waves in Matter Term: OCCASIONAL
+Listing: ECE  575 Title: Microwave Electronic Circuits Term: SPRING
+Listing: ECE  577 Title: Computational Electromagnetics Term: SPRING
+Listing: ECE  578 Title: Inverse Problems in Electromagnetics and Acoustics Term: OCCASIONAL
+Listing: ECE  581 Title: Random Signals and Noise Term: FALL
+Listing: ECE  582 Title: Digital Signal Processing Term: SPRING
+Listing: ECE  584 Title: Acoustics and Hearing (GE, EL, IM) Term: OCCASIONAL
+Listing: ECE  585 Title: Signal Detection and Extraction Theory Term: SPRING
+Listing: ECE  587 Title: Information Theory Term: FALL
+Listing: ECE  588 Title: Image and Video Processing: From Mars to Hollywood with a Stop at the Hospital Term: SPRING
+Listing: ECE  590 Title: Advanced Topics in Electrical and Computer Engineering Term: FALL-SPRNG
+Listing: ECE  590-1 Title: Advanced Topics in Electrical and Computer Engineering Term: OCCASIONAL
+Listing: ECE  611 Title: Nanoscale and Molecular Scale Computing Term: UNKNOWN
+Listing: ECE  631 Title: Analog and RF Integrated Circuit Design, Fabrication, and Test Term: FALL-SPRNG
+Listing: ECE  650 Title: Systems Programming and Engineering Term: SPRING
+Listing: ECE  651 Title: Software Engineering Term: SPRING
+Listing: ECE  652 Title: Advanced Computer Architecture II Term: OCCASIONAL
+Listing: ECE  675 Title: Optical Imaging and Spectroscopy Term: UNKNOWN
+Listing: ECE  676 Title: Lens Design Term: UNKNOWN
+Listing: ECE  681 Title: Pattern Classification and Recognition Technology Term: OCCASIONAL
+Listing: ECE  682D Title: Probabilistic Machine Learning Term: FALL
+Listing: ECE  683 Title: Digital Communication Systems Term: OCCASIONAL
+Listing: ECE  686 Title: Adaptive Filters Term: UNKNOWN
+Listing: ECE  688 Title: Sensor Array Signal Processing Term: OCCASIONAL
+Listing: ECE  721 Title: Nanotechnology Materials Lab Term: FALL-SPRNG
+Listing: ECE  722 Title: Quantum Electronics Term: UNKNOWN
+Listing: ECE  741 Title: Compressed Sensing and Related Topics Term: SPRING
+Listing: ECE  781 Title: Advanced Topics in Signal Processing Term: UNKNOWN
+Listing: ECE  784LA Title: Sound in the Sea: Introduction to Marine Bioacoustics Term: UNKNOWN
+Listing: ECE  891 Title: Internship Term: FALL-SPRNG
+Listing: ECE  899 Title: Special Readings in Electrical Engineering Term: UNKNOWN
+My dataset is:
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  110L,
+  term: FALL-SPRNG, title: Fundamentals of Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  230L,
+  term: FALL-SPRNG, title: Introduction to Microelectronic Devices and Circuits}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  250D,
+  term: FALL-SPRNG, title: Computer Architecture}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  270L,
+  term: FALL-SPRNG, title: Introduction to Electromagnetic Fields}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  280L,
+  term: FALL-SPRNG, title: Introduction to Signals and Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  290,
+  term: FALL-SPRNG, title: Special Topics in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  291,
+  term: FALL, title: Projects in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  292,
+  term: SPRING, title: Projects in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  311,
+  term: SPRING, title: Thermal Physics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  330L,
+  term: FALL, title: Fundamentals of Microelectronic Devices}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  331L,
+  term: FALL-SPRNG, title: Fundamentals of Microelectronic Circuits}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  340L,
+  term: FALL, title: Optics and Photonics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  341L,
+  term: SPRING, title: Solar Cells}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  350L,
+  term: SPRING, title: Digital Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  353,
+  term: UNKNOWN, title: Introduction to Operating Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  356,
+  term: FALL, title: Computer Network Architecture}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  363L,
+  term: FALL, title: Electric Vehicle Project}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  364,
+  term: FALL-SPRNG, title: 'Performance and Technology: Composition Workshop'}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  380,
+  term: SPRING, title: Introduction to Random Signals and Noise}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  381,
+  term: FALL, title: Fundamentals of Digital Signal Processing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  382,
+  term: SPRING, title: Linear Control Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  383,
+  term: FALL, title: Introduction to Robotics and Automation}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  384LA,
+  term: UNKNOWN, title: 'Sound in the Sea: Introduction to Marine Bioacoustics'}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  391,
+  term: FALL, title: Projects in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  392,
+  term: SPRING, title: Projects in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  431,
+  term: OCCASIONAL, title: Power Electronic Circuits for Energy Conversion}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  449,
+  term: SPRING, title: Sensors and Sensor Interface Design}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  458,
+  term: SPRING, title: Engineering Software for Maintainability}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  459,
+  term: FALL, title: Introduction to Embedded Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  461,
+  term: FALL, title: Ocean Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  483,
+  term: FALL-SPRNG, title: Introduction to Digital Communication Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  485,
+  term: SPRING, title: Digital Audio and Acoustic Signal Processing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  486,
+  term: FALL-SPRNG, title: Wireless Communication Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  488,
+  term: FALL-SPRNG, title: Digital Image and Multidimensional Processing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  489,
+  term: SPRING, title: Advanced Robot System Design}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  490D,
+  term: FALL-SPRNG, title: Special Topics in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  490L,
+  term: FALL-SPRNG, title: Special Topics in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  493,
+  term: FALL, title: Projects in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  494,
+  term: SPRING, title: Projects in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  495,
+  term: FALL, title: Special Topics in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  496,
+  term: SPRING, title: Special Topics in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  499,
+  term: FALL-SPRNG, title: ECE Professional Development}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  511,
+  term: FALL, title: Foundations of Nanoscale Science and Technology}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  512,
+  term: SPRING, title: Emerging Nanoelectronic Devices}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  521,
+  term: OCCASIONAL, title: Quantum Mechanics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  522,
+  term: UNKNOWN, title: Introduction to Micro-Electromechanical Systems (MEMS)}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  523,
+  term: OCCASIONAL, title: Quantum Information Science}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  524,
+  term: UNKNOWN, title: Introduction to Solid-State Physics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  525,
+  term: UNKNOWN, title: Semiconductor Physics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  526,
+  term: FALL, title: Semiconductor Devices for Integrated Circuits}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  527,
+  term: UNKNOWN, title: Analog Integrated Circuits}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  528,
+  term: SPRING, title: Integrated Circuit Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  529,
+  term: SPRING, title: Digital Integrated Circuits}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  531,
+  term: OCCASIONAL, title: Power Electronic Circuits for Energy Conversion}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  532,
+  term: SPRING, title: Analog Integrated Circuit Design}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  533,
+  term: FALL, title: Biochip Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  534,
+  term: OCCASIONAL, title: CAD For Mixed-Signal Circuits}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  536,
+  term: OCCASIONAL, title: Synthesis and Verification of VLSI Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  537,
+  term: OCCASIONAL, title: Radiofrequency (RF) Transceiver Design}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  538,
+  term: SPRING, title: VLSI System Testing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  539,
+  term: FALL, title: CMOS VLSI Design Methodologies}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  541,
+  term: OCCASIONAL, title: Advanced Optics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  545,
+  term: SPRING, title: Foundations of Nanoelectronics & Nanophotonics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  546,
+  term: FALL, title: Optoelectronic Devices}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  549,
+  term: UNKNOWN, title: Optics and Photonics Seminar Series}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  550D,
+  term: FALL, title: Fundamentals of Computer Systems and Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  551D,
+  term: FALL, title: 'Programming, Data Structures, and Algorithms in C++'}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  552,
+  term: FALL, title: Advanced Computer Architecture I}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  553,
+  term: SPRING, title: Compiler Construction}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  554,
+  term: FALL, title: Fault-Tolerant and Testable Computer Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  555,
+  term: FALL, title: Probability for Electrical and Computer Engineers}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  556,
+  term: OCCASIONAL, title: Wireless Networking and Mobile Computing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  557,
+  term: OCCASIONAL, title: Performance and Reliability of Computer Networks}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  558,
+  term: SPRING, title: Computer Networks and Distributed Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  559,
+  term: FALL-SPRNG, title: Advanced Digital System Design}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  561,
+  term: FALL-SPRNG, title: Datacenter Architecture}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  562,
+  term: FALL, title: Energy-Efficient Computer Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  563,
+  term: SPRING, title: Cloud Computing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  564,
+  term: FALL, title: Mobile Application Development}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  565,
+  term: FALL, title: Performance Optimization & Parallelism}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  566,
+  term: FALL, title: Enterprise Storage Architecture}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  571,
+  term: FALL, title: Electromagnetic Theory}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  572,
+  term: FALL, title: Electromagnetic Communication Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  573,
+  term: OCCASIONAL, title: Optical Communication Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  574,
+  term: OCCASIONAL, title: Waves in Matter}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  575,
+  term: SPRING, title: Microwave Electronic Circuits}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  577,
+  term: SPRING, title: Computational Electromagnetics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  578,
+  term: OCCASIONAL, title: Inverse Problems in Electromagnetics and Acoustics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  581,
+  term: FALL, title: Random Signals and Noise}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  582,
+  term: SPRING, title: Digital Signal Processing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  584,
+  term: OCCASIONAL, title: 'Acoustics and Hearing (GE, EL, IM)'}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  585,
+  term: SPRING, title: Signal Detection and Extraction Theory}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  587,
+  term: FALL, title: Information Theory}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  588,
+  term: SPRING, title: 'Image and Video Processing: From Mars to Hollywood with a
+    Stop at the Hospital'}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  590,
+  term: FALL-SPRNG, title: Advanced Topics in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  590-1,
+  term: OCCASIONAL, title: Advanced Topics in Electrical and Computer Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  611,
+  term: UNKNOWN, title: Nanoscale and Molecular Scale Computing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  631,
+  term: FALL-SPRNG, title: 'Analog and RF Integrated Circuit Design, Fabrication,
+    and Test'}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  650,
+  term: SPRING, title: Systems Programming and Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  651,
+  term: SPRING, title: Software Engineering}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  652,
+  term: OCCASIONAL, title: Advanced Computer Architecture II}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  675,
+  term: UNKNOWN, title: Optical Imaging and Spectroscopy}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  676,
+  term: UNKNOWN, title: Lens Design}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  681,
+  term: OCCASIONAL, title: Pattern Classification and Recognition Technology}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  682D,
+  term: FALL, title: Probabilistic Machine Learning}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  683,
+  term: OCCASIONAL, title: Digital Communication Systems}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  686,
+  term: UNKNOWN, title: Adaptive Filters}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  688,
+  term: OCCASIONAL, title: Sensor Array Signal Processing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  721,
+  term: FALL-SPRNG, title: Nanotechnology Materials Lab}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  722,
+  term: UNKNOWN, title: Quantum Electronics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  741,
+  term: SPRING, title: Compressed Sensing and Related Topics}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  781,
+  term: UNKNOWN, title: Advanced Topics in Signal Processing}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  784LA,
+  term: UNKNOWN, title: 'Sound in the Sea: Introduction to Marine Bioacoustics'}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  891,
+  term: FALL-SPRNG, title: Internship}
+- {category: Approved Technical Elective, concentration: '', id: '', listing: ECE  899,
+  term: UNKNOWN, title: Special Readings in Electrical Engineering}
+

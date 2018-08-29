@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+  <h2>Administration Create Program of Study Page </h2>
+
+<p class="lead">
+  Please click a button below to create its corresponding list of Program of Study Form on behalf of a student.
+</p>
+<p class="lead">
+{% buttons %}
+<p>
+  <a href="{% url 'admin-meng-create' %}"class="btn btn-primary btn-lg btn-block">Create MEng Form </a>
+</p>
+<p>
+  <a href="{% url 'admin-mscourse-create' %}"class="btn btn-primary btn-lg btn-block">Create Coursework MS Form </a>
+</p>
+<p>
+  <a href="{% url 'admin-msproject-create' %}"class="btn btn-primary btn-lg btn-block">Create Project MS Form </a>
+</p>
+<p>
+  <a href="{% url 'admin-msthesis-create' %}"class="btn btn-primary btn-lg btn-block">Create Thesis MS Form </a>
+</p>
+<p>
+  <a href="{% url 'admin-phdbachelor-create' %}"class="btn btn-primary btn-lg btn-block">Create PhD Bachelor Form </a>
+</p>
+<p>
+  <a href="{% url 'admin-phdmaster-create' %}"class="btn btn-primary btn-lg btn-block">Create PhD Master Form </a>
+</p>
+{% endbuttons %}
+
+{% endblock %}

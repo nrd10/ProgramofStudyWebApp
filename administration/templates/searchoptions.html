@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+  <h2>Administration User Control Page </h2>
+
+<p class="lead">
+  Please click a button below to search for specific instances or rows within each database model.
+</p>
+
+{% buttons %}
+<p>
+  <a href="{% url 'admin-courses' %}"class="btn btn-primary btn-lg btn-block">Search Courses</a>
+</p>
+<p>
+  <a href="{% url 'admin-meng-history' %}"class="btn btn-primary btn-lg btn-block">Search Forms</a>
+</p>
+<p>
+  <a href="{% url 'admin-user-search' %}"class="btn btn-primary btn-lg btn-block">Search Users</a>
+</p>
+
+{% endbuttons %}
+
+{% endblock %}

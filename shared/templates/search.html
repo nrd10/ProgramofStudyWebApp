@@ -1,0 +1,176 @@
+{% extends "base_generic.html" %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load widget_tweaks %}
+{% load class_tag %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+{{form.media}}
+{{ form.media.css }}
+
+{% if usertype == "DGS" %}
+  <ul class="nav nav-pills">
+    <li role="presentation"><a href="{% url 'dgs-meng-history' %}">MEng History</a></li>
+    <li role="presentation"><a href="{% url 'dgs-mscourse-history' %}">MS Course History</a></li>
+    <li role="presentation"><a href="{% url 'dgs-msproject-history' %}">MS Project History</a></li>
+    <li role="presentation"><a href="{% url 'dgs-msthesis-history' %}">MS Thesis History</a></li>
+    <li role="presentation"><a href="{% url 'dgs-phdbachelor-history' %}">PhD Bachelor History</a></li>
+    <li role="presentation"><a href="{% url 'dgs-phdmaster-history' %}">PhD Master History</a></li>
+  </ul>
+{% elif usertype == "Administrator" %}
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{% url 'admin-meng-history' %}">MEng History</a></li>
+      <li role="presentation"><a href="{% url 'admin-mscourse-history' %}">MS Course History</a></li>
+      <li role="presentation"><a href="{% url 'admin-msproject-history' %}">MS Project History</a></li>
+      <li role="presentation"><a href="{% url 'admin-msthesis-history' %}">MS Thesis History</a></li>
+      <li role="presentation"><a href="{% url 'admin-phdbachelor-history' %}">PhD Bachelor History</a></li>
+      <li role="presentation"><a href="{% url 'admin-phdmaster-history' %}">PhD Master History</a></li>
+    </ul>
+{% endif %}
+
+{% if type == 'MEngPOS' %}
+  <h3> MEng Program Of Study Search Page </h3>
+{% elif type == 'MSCoursePOS' %}
+  <h3> M.S. Coursework Program Of Study Search Page </h3>
+{% elif type == 'MSProjectPOS' %}
+  <h3> M.S. Project Program Of Study Search Page </h3>
+{% elif type == 'MSThesisPOS' %}
+  <h3> M.S. Thesis Program Of Study Search Page </h3>
+{% elif type == 'PHDBachelorPOS' %}
+  <h3> PhD Bachelor Program Of Study Search Page </h3>
+{% elif type == 'PHDMasterPOS' %}
+  <h3> PhD Master Program Of Study Search Page </h3>
+{% endif %}
+<p class="lead">
+   Use the fields below to search for previously marked forms. This page will allow to you only access POS forms
+   that have been either rejected or approved by the DGS. Approved forms will appear in green and rejected forms will
+   appear in red. The buttons on the top of the page will allow you to search for different types of approved
+   or rejected POS forms.
+</p>
+
+
+<form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.first.label_tag }}
+          {% render_field filter.form.first class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.second.label_tag }}
+          {% render_field filter.form.second class="form-control" %}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  </form>
+
+  <table class="table table-bordered">
+     <thead>
+       <tr>
+         <th>First name</th>
+         <th>Last name</th>
+         <th>Date submitted & link</th>
+       </tr>
+     </thead>
+     <tbody>
+       {% for form in users %}
+        <tr>
+          <td>{{ form.owner.first_name }}</td>
+          <td>{{ form.owner.last_name }}</td>
+          {% if usertype == "DGS" %}
+            {% if form.state == "Approved" %}
+              <td><a href="{{ form.get_dgs_url }}"><strong class="text-success">{{ form.submission }}</strong> </a></td>
+            {% elif form.state == "DGSRejected" %}
+              <td><a href="{{ form.get_dgs_url }}"><strong class="text-danger">{{ form.submission }}</strong> </a></td>
+            {% endif %}
+          {% elif usertype == "Administrator" %}
+            {% if form.state == "Approved" %}
+              <td><a href="{{ form.get_admin_url }}"><strong class="text-success">{{ form.submission }}</strong> </a></td>
+            {% elif form.state == "DGSRejected" or form.state == "AdvisorRejected" %}
+              <td><a href="{{ form.get_admin_url }}"><strong class="text-danger">{{ form.submission }}</strong> </a></td>
+            {% else %}
+              <td><a href="{{ form.get_admin_url }}"><strong>{{ form.submission }}</strong> </a></td>
+            {% endif %}
+          {% endif %}
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+
+<div class="paginator">
+    {% with request.get_full_path as querystring %}
+        <ul class="pagination">
+            <!-- Previous page section -->
+            {% if users.has_previous %}
+                {% if 'search' in querystring %}
+                    {% if 'page' in querystring %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring|slice:":-7" }}&page={{ page|add:"-1" }}">Prev</a>
+                        </li>
+                    {% else %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring }}?first=&second=&page={{ page|add:"-1" }}">Prev</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="paginator {% if pages.number == page %}active{% endif %}">
+                        <a href="?first=&second=?page={{ page|add:"-1" }}">Prev</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            <!-- All pages section -->
+            {% for page in users.paginator.page_range %}
+                {% if 'search' in querystring %}
+                    {% if 'page' in querystring %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring|slice:":-7" }}&page={{ page }}">{{ page }}</a>
+                        </li>
+                    {% else %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring }}?first=&second=&page={{ page }}">{{ page }}</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="paginator {% if pages.number == page %}active{% endif %}">
+                        <a href="?first=&second=?page={{ page }}">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Next page section -->
+            {% if users.has_next %}
+                {% if 'search' in querystring %}
+                    {% if 'page' in querystring %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring|slice:":-7" }}&page={{ page|add:"1" }}">Next</a>
+                        </li>
+                    {% else %}
+                        <li class="paginator {% if pages.number == page %}active{% endif %}">
+                            <a href="{{ querystring }}?first=&second=&page={{ page|add:"1" }}">Next</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="paginator {% if pages.number == page %}active{% endif %}">
+                        <a href="?first=&second=?page={{ page|add:"1" }}">Next</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+        </ul>
+    {% endwith %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  function extract_token() {
+    var anchor = window.location.hash;
+    var start = anchor.indexOf('=');
+    var end = anchor.indexOf('&');
+    var token_value = anchor.substring(start + 1, end);
+    document.vform.token.value = token_value;
+    vform.submit();
+  }
+  </script>
+</head>
+<body onload="extract_token()">
+  <form name="vform" action="oauth_login" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="token">
+  </form>
+</body>
+</html>

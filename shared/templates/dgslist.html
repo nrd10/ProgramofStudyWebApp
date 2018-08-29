@@ -1,0 +1,57 @@
+{% extends "base_generic.html" %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+
+{% if list == 'MEng' %}
+  <h1> MEng Program Of Study Forms </h1>
+{% elif list == 'MSc' %}
+  <h1> M.S. Coursework Program Of Study Forms </h1>
+{% elif list == 'MSp' %}
+  <h1> M.S. Project Program Of Study Forms </h1>
+{% elif list == 'MSt' %}
+  <h1> M.S. Thesis Program Of Study Forms </h1>
+{% elif list == 'PHDB' %}
+  <h1> PhD Bachelor Program Of Study Forms </h1>
+{% elif list == 'PHDM' %}
+  <h1> PhD Master Program Of Study Forms </h1>
+{% endif %}
+
+
+  <h3>Forms Awaiting Approval</h3>
+  <ol>
+  {% for form in form_list %}
+    {% if form.state == "DGSPending" %}
+      <li>
+        <a href="{{ form.get_dgs_url }}"><strong>{{ form.owner.get_full_name }}: {{ form.submission }} </strong> </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ol>
+  {% if dgscount == 0 %}
+    <p> There are no forms awaiting approval. </p>
+  {% endif %}
+
+  {% buttons %}
+    {% if list == 'MEng' %}
+      <a href="{% url 'dgs-meng-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+    {% elif list == 'MSc' %}
+      <a href="{% url 'dgs-mscourse-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+    {% elif list == 'MSp' %}
+      <a href="{% url 'dgs-msproject-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+    {% elif list == 'MSt' %}
+      <a href="{% url 'dgs-msthesis-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+    {% elif list == 'PHDB' %}
+      <a href="{% url 'dgs-phdbachelor-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+    {% elif list == 'PHDM' %}
+      <a href="{% url 'dgs-phdmaster-history' %}"class="btn btn-primary btn-lg btn-block">View All Previously Marked Forms </a>
+    {% endif %}
+  {% endbuttons %}
+
+
+{% endblock %}
