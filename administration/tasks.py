@@ -9,9 +9,38 @@ from django.core.mail import EmailMultiAlternatives, send_mail
 from django.utils.html import strip_tags
 from django.template.loader import get_template, render_to_string
 from django.template import Context
-
+from django.core.management import call_command
+from django.contrib import messages
+from celery_progress.backend import ProgressRecorder
+from async_messages import message_user
+from shared.models import User
+from django.contrib.messages import constants
 logger = get_task_logger(__name__)
 
+
+@task()
+def update_database(netid):
+    person = User.objects.get(netid=netid)
+    call_command('updatetechnical')
+    #Update Electives
+    call_command('updatelective')
+    message_users(person, "Course Update Success!", constants.SUCCESS)
+    # messages.add_message(request, messages.INFO, "Course Update Success!")
+
+
+
+@task()
+def populate_database(netid):
+    person = User.objects.get(netid=netid)
+    message_users(person, "Course Import START", constants.SUCCESS)
+    call_command('importechnical')
+        # Add Concentrations
+    call_command('addconcentration')
+        # Import Electives
+    call_command('importelective')
+    message_users(person, "Course Import Success!", constants.SUCCESS)
+
+    # messages.add_message(request, messages.SUCCESS, "Course Import Success!")
 
 @task()
 def email_DGS():

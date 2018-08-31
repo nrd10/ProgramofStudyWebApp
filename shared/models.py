@@ -182,9 +182,9 @@ class CourseType(models.Model):
         verbose_name_plural = 'Course Categories'
 
 # CREATE GROUPS: each group will have some subset of the permissions for each class
-MEng_students, created = Group.objects.get_or_create(name = 'MEng_students')
-MS_students = Group.objects.get_or_create(name = 'MS_students')
-Advisor_group = Group.objects.get_or_create(name = 'Advisor_group')
-DGS_group = Group.objects.get_or_create(name = 'DGS_group')
-PHD_students = Group.objects.get_or_create(name = 'PHD_students')
-Administrators = Group.objects.get_or_create(name = 'Administrators')
+# MEng_students, created = Group.objects.get_or_create(name = 'MEng_students')
+# MS_students = Group.objects.get_or_create(name = 'MS_students')
+# Advisor_group = Group.objects.get_or_create(name = 'Advisor_group')
+# DGS_group = Group.objects.get_or_create(name = 'DGS_group')
+# PHD_students = Group.objects.get_or_create(name = 'PHD_students')
+# Administrators = Group.objects.get_or_create(name = 'Administrators')

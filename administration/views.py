@@ -23,7 +23,7 @@ from django.db.models import Q
 from django.conf import settings
 from tablib import Dataset
 from decouple import config
-
+from .tasks import populate_database, update_database
 logger = logging.getLogger('administration/views.py')
 
 import sys
@@ -68,12 +68,15 @@ def admindatabase(request):
 def populatedb(request):
     #Import Technical Electives
     try:
-        call_command('importechnical')
-        # Add Concentrations
-        call_command('addconcentration')
-        # Import Electives
-        call_command('importelective')
-        messages.add_message(request, messages.SUCCESS, "Course Import Success!")
+        # call_command('importechnical')
+        # # Add Concentrations
+        # call_command('addconcentration')
+        # # Import Electives
+        # call_command('importelective')
+        netid = request.user.netid
+        populate_database.delay(netid)
+
+        messages.add_message(request, messages.INFO, "Course Import In Progress")
         return redirect('admin-database')
 
     except:
@@ -88,10 +91,12 @@ def populatedb(request):
 def updatedb(request):
     #Update Technical Electives
     try:
-        call_command('updatetechnical')
-        #Update Electives
-        call_command('updatelective')
-        messages.add_message(request, messages.SUCCESS, "Course Update Success!")
+        # call_command('updatetechnical')
+        # #Update Electives
+        # call_command('updatelective')
+        netid = request.user.netid
+        update_database.delay(netid)
+        messages.add_message(request, messages.INFO, "Course Update In Progress")
         return redirect('admin-database')
 
     except:

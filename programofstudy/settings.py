@@ -71,6 +71,7 @@ INSTALLED_APPS = [
      'multiselectfield',
      'django_celery_beat',
      'oauth2_provider',
+     'celery_progress',
 ]
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -83,6 +84,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'async_messages.middleware.AsyncMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -119,12 +121,22 @@ TEMPLATE_DIRS = (
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
+        # 'NAME': 'postgres',
+        # 'USER': 'postgres',
+        'NAME': config('DOCKER_NAME'),
+        'USER': config('DOCKER_USER'),
+        'PASSWORD': config('DOCKER_PASSWORD'),
         'HOST': 'db',
         'PORT': 5432,
     }

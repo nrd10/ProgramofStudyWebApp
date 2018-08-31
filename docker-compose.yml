@@ -3,11 +3,15 @@ version: '3'
 services:
  db:
    image: postgres
+   environment:
+     - POSTGRES_USER=POSuser
+     - POSTGRES_PASSWORD=programofstudy
+     - POSTGRES_DB=POS
  redis:
    image: "redis:alpine"
  web:
    build: .
-   command: python3 manage.py runserver [::]:8000
+   command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
    volumes:
      - .:/code
    ports:
@@ -22,11 +26,15 @@ services:
    depends_on:
      - db
      - redis
+     - web
+   expose:
+     - "8000"
  celery-beat:
    build: .
-   command: celery -A programofstudy beat -l info
+   command: celery -A programofstudy beat  -l info
    volumes:
      - .:/code
    depends_on:
      - db
      - redis
+     - web

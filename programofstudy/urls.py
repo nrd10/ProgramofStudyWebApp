@@ -33,4 +33,5 @@ urlpatterns = [
     path('phd/', include('phd.urls')),
     path('administration/', include('administration.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    url(r'^celery-progress/', include('celery_progress.urls')),  # the endpoint is configurable
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
