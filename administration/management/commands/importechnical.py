@@ -32,7 +32,7 @@ class Command(BaseCommand):
         ]
 
         #Creates Our 2 Course Categories
-        Tech, Techbool = CourseType.objects.get_or_create(title = "Approved Technical Elective")
+        # Tech, Techbool = CourseType.objects.get_or_create(title = "Approved Technical Elective")
         Elective, Electivebool = CourseType.objects.get_or_create(title = "Elective")
 
         #Append GLOBAL TOKEN

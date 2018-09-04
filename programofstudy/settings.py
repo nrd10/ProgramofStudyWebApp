@@ -65,13 +65,13 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'search_listview',
     'jquery',
-     'django_filters',
-     'import_export',
-     'constance',
-     'multiselectfield',
-     'django_celery_beat',
-     'oauth2_provider',
-     'celery_progress',
+    'django_filters',
+    'import_export',
+    'constance',
+    'multiselectfield',
+    'django_celery_beat',
+    'oauth2_provider',
+    'celery_progress',
 ]
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -84,8 +84,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'async_messages.middleware.AsyncMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+MIDDLEWARE_CLASSES = [
+    'async_messages.middleware.AsyncMiddleware',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -124,7 +127,7 @@ TEMPLATE_DIRS = (
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
+        'LOCATION': 'memcached:11211',
     }
 }
 
@@ -182,6 +185,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/POS/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
 
 #Specifies Custom User Model in "Shared" Application
 AUTH_USER_MODEL = 'shared.User'
@@ -204,10 +210,10 @@ CELERY_IMPORTS = ('administration.tasks',)
 CELERY_BEAT_SCHEDULE = {
     'email_DGS': {
         'task': 'administration.tasks.email_DGS',
-        'schedule': crontab(minute='40', hour='9'),
+        'schedule': crontab(minute='30', hour='12'),
     },
     'email_advisor': {
         'task': 'administration.tasks.email_advisor',
-        'schedule': crontab(minute='45', hour='9'),
+        'schedule': crontab(minute='30', hour='12'),
     }
 }

@@ -111,9 +111,17 @@
   </div>
 </div>
 
-
-
-
+{% if import_courses == 'True' %}
+  <p class="text-danger">
+  The course table is empty please run <b> Import Courses </b>
+  </p>
+{% elif import_courses == 'Maybe' %}
+  <b>The course table import is still in progress.</b>
+{% elif import_courses == 'False' %}
+  <p class="text-success">
+  The course table is populated. Run <b> Update Couses </b> to update the course table.
+  </p>
+{% endif %}
 
 
 

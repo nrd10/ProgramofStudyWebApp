@@ -23,12 +23,13 @@ from django.db.models import Q
 from django.conf import settings
 from tablib import Dataset
 from decouple import config
-from .tasks import populate_database, update_database
+from .tasks import populate_database, update_database, delete_all_courses
 logger = logging.getLogger('administration/views.py')
 
 import sys
 import tablib
 import xlwt
+import time
 
 #Serves template that gives Form Creation Options
 @permission_required('meng.MEng_Admin_Create')
@@ -58,9 +59,19 @@ def admindatabase(request):
     """
     Create function for admin
     """
+    total = Course.objects.count()
+    if total == 0:
+        import_courses = 'True'
+    elif total < 11300:
+        import_courses = 'Maybe'
+    else:
+        import_courses = 'False'
+    args = {'import_courses': import_courses, }
+
     return render(
         request,
         'databaseoptions.html',
+        args,
     )
 
 #Runs Custom Commands to Import Courses to Database
@@ -74,9 +85,10 @@ def populatedb(request):
         # # Import Electives
         # call_command('importelective')
         netid = request.user.netid
+        logger.error("NETID of PERSON IS:"+str(netid))
         populate_database.delay(netid)
-
         messages.add_message(request, messages.INFO, "Course Import In Progress")
+
         return redirect('admin-database')
 
     except:
@@ -95,7 +107,9 @@ def updatedb(request):
         # #Update Electives
         # call_command('updatelective')
         netid = request.user.netid
-        update_database.delay(netid)
+        state = update_database.delay(netid)
+        if (state) != 'READY_STATES':
+            logger.error("NOT READY")
         messages.add_message(request, messages.INFO, "Course Update In Progress")
         return redirect('admin-database')
 
@@ -155,8 +169,9 @@ def coursedelete(request, form_id):
 @permission_required('shared.Course_Admin_Create')
 def fullcoursedelete(request):
     try:
-        all = Course.objects.all()
-        all.delete()
+        # all = Course.objects.all()
+        # all.delete()
+        delete_all_courses.delay()
         messages.add_message(request, messages.SUCCESS, "Full Course Delete Success!")
         return redirect('admin-database')
     except:

@@ -5,6 +5,11 @@ WORKDIR /code
 ADD requirements.txt /code/
 RUN pip3 install -r requirements.txt
 COPY . /code/
-RUN groupadd -g 1002 posuser && \
-    useradd -r -u 1060403 -g posuser posuser
+RUN groupadd posgroup
+RUN useradd -m -G posgroup posuser
+RUN chown -R posuser:posgroup /code/
+RUN chown -R posuser:posgroup .
+RUN mkdir /var/run/celery
+RUN chown -R posuser:posgroup /var/run/celery/
+
 USER posuser

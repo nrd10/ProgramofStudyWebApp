@@ -2,6 +2,7 @@ from __future__ import absolute_import, unicode_literals
 from celery import task
 from celery.utils.log import get_task_logger
 from shared.models import User as CustomUser
+from shared.models import Course
 from meng.models import *
 from ms.models import *
 from phd.models import *
@@ -12,35 +13,43 @@ from django.template import Context
 from django.core.management import call_command
 from django.contrib import messages
 from celery_progress.backend import ProgressRecorder
-from async_messages import message_user
+from async_messages import message_user, messages
 from shared.models import User
-from django.contrib.messages import constants
+from django.shortcuts import redirect
+
 logger = get_task_logger(__name__)
 
 
 @task()
 def update_database(netid):
     person = User.objects.get(netid=netid)
+    logger.error("My person is:"+str(person))
     call_command('updatetechnical')
     #Update Electives
     call_command('updatelective')
-    message_users(person, "Course Update Success!", constants.SUCCESS)
+    # messages.success(person, "Course Update Success!")
     # messages.add_message(request, messages.INFO, "Course Update Success!")
 
+@task()
+def delete_all_courses():
+    all = Course.objects.all()
+    all.delete()
 
 
 @task()
 def populate_database(netid):
     person = User.objects.get(netid=netid)
-    message_users(person, "Course Import START", constants.SUCCESS)
+    logger.error("My person is:"+str(person))
+    # message_user(person, "Course Import START", constants.SUCCESS)
     call_command('importechnical')
-        # Add Concentrations
+    # Add Concentrations
     call_command('addconcentration')
-        # Import Electives
-    call_command('importelective')
-    message_users(person, "Course Import Success!", constants.SUCCESS)
 
-    # messages.add_message(request, messages.SUCCESS, "Course Import Success!")
+    # Import Electives
+    call_command('importelective')
+
+    # messages.success(person, "Course Import Success!")
+
 
 @task()
 def email_DGS():
