@@ -19,6 +19,8 @@ The application's database contains all of Duke's courses, allowing allowing for
 with courses each student plans on enrolling in in their time at Duke. The Django Select2 
 library was used to allow students to easily search and select courses for each field in the Program of Study form.
 After submitting completed forms, students will receive email notifications when a form is either approved or rejected. 
+Students also have access to a ListView that shows all forms each student has ever submitted organized by whether the form 
+is Approved, Rejected, or Pending Review.
 
 
 The screenshot below shows an example of the form creation page accessible by students:
