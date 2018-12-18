@@ -35,7 +35,7 @@ We used a Postgresql database to store data models
 
 # Authentication
 
-# General Setup: Models
+# Models
 The models in the shared app are used as Foreign Keys or ManytoManyFields in the models im the meng, ms, and phd applications. 
 These models are User (a custom User model), Course, Concentration, and Course Type. The Course Type model stores two values, 
 Elective and Technical Elective. Each course is classified as one or the other or both. The Concentration model stores the 6 
@@ -58,7 +58,7 @@ they are matriculating with just a bachelor's degree, and one if they are matric
 The two models ending in "POS" store forms for each type of form. The models ending in "Comment" store comments 
 left by advisors and DGS administrators for program of study forms for each type of form.
 
-# General Setup: User Account Types/Permissions
+# User Account Types/Permissions
 There are different types of users that can use the web application. There are Student accounts, 
 Advisor accounts, DGS accounts, and Administrator accounts. The type of an account a user has is 
 chosen through the MultiSelectField "user_type" in the custom User model. A Student account can 
@@ -69,7 +69,7 @@ in the web application. So for example, Advisor and DGS accounts cannot submit f
 approve and reject forms. Student accounts can create new program of study forms, but are unable 
 to approve or reject forms.
 
-# General Setup: Views
+# Views
 The meng, ms, and phd applications each have a repeated set of class-based and function-based views. 
 For each type of program of study form, there is a view to create a new form (CreateView) , update an 
 existing form (UpdateView), list out all (ListView), show the details of an existing form (DetailView), 
@@ -77,11 +77,11 @@ approve a form, reject a form, and search for a specific type of form. Some of t
 function-based views are repeated for Advisor and DGS accounts. For example, the Advisor accounts have 
 access to a view (ListView) that allows them to see all submitted program of study forms for students who they advise.
 
-# General Setup: Search
+# Search
 The meng, ms, and phd application each make use of Django's filters API to allow DGS and administrator 
 accounts to easily find program of study forms for each type of student.
 
-# General Setup: Forms
+# Forms
 The meng, ms, and phd applications all make use of ModelForms located in forms.py for each application. 
 Students can view, fill out and submit these forms to represent their program of study. The Django Select2 
 library was used to allow students to easily search and select courses for each field in each distinct model. 
