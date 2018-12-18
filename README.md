@@ -22,6 +22,7 @@ After submitting completed forms, students will receive email notifications when
 
 
 The screenshot below shows an example of the form creation page accessible by students:
+![Form_Creation](/uploads/e41eb9390c19138ebcfea37f2930c349/Form_Creation.png) 
 
 # Functionalities: Advisors
 
