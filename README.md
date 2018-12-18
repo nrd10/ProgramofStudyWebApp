@@ -11,7 +11,11 @@ sudo docker compose up
 The web application, as stated above, handles the creation, submission, and 
 review of Program of Study forms for Duke ECE graduate students. 
 The application handles 4 different user types: Student accounts, Advisor accounts, DGS accounts, 
-and Adminstrator accounts. Each account has access to a separate set of features that is explained below.
+and Adminstrator accounts. Each user account 
+type has a different set of permissions that changes the functions and web pages available to them 
+in the web application. For example, Advisor and DGS accounts cannot submit forms but they can 
+approve and reject forms. Student accounts can create new program of study forms, but are unable 
+to approve or reject forms. The separate set of features available to each user type is explained below.
 # Functionalities: Students
 A Student account can  either be "MEng", "MS", or "PhD" corresponding to MEng, MS, and PhD graduate students, respectively.
 Each student is able to create and submit Program of Study forms through the application. Students accounts are separated into
@@ -70,18 +74,8 @@ they are matriculating with just a bachelor's degree, and one if they are matric
 The two models ending in "POS" store forms for each type of form. The models ending in "Comment" store comments 
 left by advisors and DGS administrators for program of study forms for each type of form.
 
-# User Account Types/Permissions
-There are different types of users that can use the web application. There are Student accounts, 
-Advisor accounts, DGS accounts, and Administrator accounts. The type of an account a user has is 
-chosen through the MultiSelectField "user_type" in the custom User model. A Student account can 
-either be "MEng", "MS", or "PhD". An Advisor, Administrator or DGS account can also be one of the 
-other two types of accounts. So an Advisor account may also be a DGS account. Each user account 
-type has a different set of permissions that changes the functions and web pages available to them 
-in the web application. So for example, Advisor and DGS accounts cannot submit forms but they can 
-approve and reject forms. Student accounts can create new program of study forms, but are unable 
-to approve or reject forms.
 
-# Views
+# General Setup: Views
 The meng, ms, and phd applications each have a repeated set of class-based and function-based views. 
 For each type of program of study form, there is a view to create a new form (CreateView) , update an 
 existing form (UpdateView), list out all (ListView), show the details of an existing form (DetailView), 
