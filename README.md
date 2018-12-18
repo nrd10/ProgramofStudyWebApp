@@ -20,7 +20,7 @@ to approve or reject forms. The separate set of features available to each user 
 A Student account can  either be "MEng", "MS", or "PhD" corresponding to MEng, MS, and PhD graduate students, respectively.
 Each student is able to create and submit Program of Study forms through the application. Students accounts are separated into
 those three categories since each student has separate types of the Program of Study form since the requirements for each degree differ.
-The application's database can be populated by all of Duke's courses, allowing for the submission of forms populated
+The application's PostgresSQL database can be populated by all of Duke's courses, allowing for the submission of forms populated
 with courses each student plans on enrolling in in their time at Duke. The Django Select2 
 library was used to allow students to easily search and select courses for each field in the Program of Study form.
 After submitting completed forms, students will receive email notifications when a form is either approved or rejected. 
@@ -45,9 +45,6 @@ administration, and shared. Meng, ms, and phd handle urls, views, models, etc. f
 study forms respectively. The shared app primarily contains templates and models that are utilized. by the majority 
 of the other applications. For example, shared contains the Course and User models. The administration app contains 
 views, urls, and templates for the custom admin interface.
-
-# Database Configuration
-We used a Postgresql database to store data models
 
 # Authentication
 
