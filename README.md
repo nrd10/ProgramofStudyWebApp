@@ -26,21 +26,26 @@ approve and reject forms. Student accounts can create new program of study forms
 to approve or reject forms. The separate set of features available to each user type is explained below.
 # Functionalities: Students
 A Student account can  either be "MEng", "MS", or "PhD" corresponding to MEng, MS, and PhD graduate students, respectively.
-Each student is able to create and submit Program of Study forms through the application. Students accounts are separated into
-those three categories since each student has separate types of the Program of Study form since the requirements for each degree differ.
+Students accounts are separated into those three categories since each student has separate types of the Program of Study form 
+since the requirements for each degree differ. Each student is able to create and submit Program of Study forms through the application.
 The application's PostgresSQL database can be populated by all of Duke's courses, allowing for the submission of forms populated
 with courses each student plans on enrolling in in their time at Duke. The Django Select2 
 library was used to allow students to easily search and select courses for each field in the Program of Study form.
 After submitting completed forms, students will receive email notifications when a form is either approved or rejected. 
 Students also have access to a ListView that shows all forms each student has ever submitted organized by whether the form 
-is Approved, Rejected, or Pending Review.
+is Approved, Rejected, or Pending Review. Students may also edit their submitted forms and resubmit them as long as the form 
+is not waiting to be Approved or Rejected by an Advisor or a DGS account.
 
 
 The screenshot below shows an example of the form creation page accessible by students:
 ![Form_Creation](/uploads/e41eb9390c19138ebcfea37f2930c349/Form_Creation.png) 
 
 # Functionalities: Advisors
-
+Advisor accounts have access to features allowing them to review submitted Program of Study forms. Each student account, when created
+is assigned an Advisor. When a student submits a Program of Study form, their assigned Advisor will gain access to the submitted 
+form and have the ability to Approve or Reject the form. Advisors are able to view, approve, and reject Program of Study forms for any of their Advisees
+(student accounts associated with that Advisor). Once Program of Study forms are Approved by an Advisor, they are viewable by DGS accounts 
+who then must approve them. If they are rejected, student's must resubmit an amended Program of Study form.
 # Functionalities: DGS
 
 # Functionalities: Administrators
