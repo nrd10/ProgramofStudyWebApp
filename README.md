@@ -106,7 +106,8 @@ accounts to easily find program of study forms for each type of student.
 Each Program of Study form was validated to abide by the following constraints:
 1. Courses could **not be counted more than one time** in any Program of Study form
 2. ECE 899: Independent Study courses could **count only 2x towards a degree**
-3. 
+3. Undergraduate courses with listings below 500 count **count only 2x towards a degree**
+4. Multiple Independent Studies and Undergrdaute courses would **count as only 2 courses in a degree**
 The meng, ms, and phd applications all make use of ModelForms located in forms.py for each application. 
 Students can view, fill out and submit these forms to represent their program of study. 
 Validation was added to these student program of study forms to meet specific constraints outlined by the 
