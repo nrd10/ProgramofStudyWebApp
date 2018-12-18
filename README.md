@@ -20,6 +20,10 @@ with courses each student plans on enrolling in in their time at Duke. The Djang
 library was used to allow students to easily search and select courses for each field in the Program of Study form.
 After submitting completed forms, students will receive email notifications when a form is either approved or rejected. 
 
+
+The screenshot below shows an example of the form creation page accessible by students:
+![POS_Form_Creation](/uploads/c6b5f05864c6caded65911c6854276f6/POS_Form_Creation.png)
+
 # Functionalities: Advisors
 
 # Functionalities: DGS
