@@ -19,12 +19,21 @@ The web application
 
 # Functionalities: DGS
 
+# Functionalities: Administrators
+
+# Custom Admin Interface
+
 # Code Organzation
 The Django project is titled 'programofstudy' and is setup with 5 different applications: meng, ms, phd, 
 administration, and shared. Meng, ms, and phd handle urls, views, models, etc. for MEng, MS, and PhD program of 
 study forms respectively. The shared app primarily contains templates and models that are utilized. by the majority 
 of the other applications. For example, shared contains the Course and User models. The administration app contains 
 views, urls, and templates for the custom admin interface.
+
+# Database Configuration
+We used a Postgresql database to store data models
+
+# Authentication
 
 # General Setup: Models
 The models in the shared app are used as Foreign Keys or ManytoManyFields in the models im the meng, ms, and phd applications. 
@@ -80,9 +89,3 @@ Validation was added to these student program of study forms to meet specific co
 Duke ECE department. Specifically, courses are not counted for more than one field, and  no more than 2 
 Independent Study courses can be used towards a student's program of study.
 
-# Database Configuration
-We used a Postgresql database to store data models
-
-# Authentication 
-
-# Custom Admin Interface
