@@ -51,7 +51,7 @@ We used a Postgresql database to store data models
 
 # Authentication
 
-# Models
+# General Setup: Models
 The models in the shared app are used as Foreign Keys or ManytoManyFields in the models im the meng, ms, and phd applications. 
 These models are User (a custom User model), Course, Concentration, and Course Type. The Course Type model stores two values, 
 Elective and Technical Elective. Each course is classified as one or the other or both. The Concentration model stores the 6 
@@ -94,4 +94,5 @@ library was used to allow students to easily search and select courses for each 
 Validation was added to these student program of study forms to meet specific constraints outlined by the 
 Duke ECE department. Specifically, courses are not counted for more than one field, and  no more than 2 
 Independent Study courses can be used towards a student's program of study.
+# General Setup: Management Commands
 
