@@ -25,6 +25,11 @@ in the web application. For example, Advisor and DGS accounts cannot submit form
 approve and reject forms. Student accounts can create new program of study forms, but are unable 
 to approve or reject forms. The separate set of features available to each user type is explained below.
 # Functionalities: Students
+Functions available to students are summarized below:
+1. Create and submit a Program of Study form
+2. View all forms the student has ever submitted organized by whether the forms were Approved, Rejected, or Pending approval
+3. Receive notifcations by email when a form is Approved or Rejected
+
 A Student account can  either be "MEng", "MS", or "PhD" corresponding to MEng, MS, and PhD graduate students, respectively.
 Students accounts are separated into those three categories since each student has separate types of the Program of Study form 
 since the requirements for each degree differ. Each student is able to create and submit Program of Study forms through the application.
