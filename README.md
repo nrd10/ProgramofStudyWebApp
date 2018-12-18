@@ -1,6 +1,13 @@
 # Program Of Study Web Application
 This web application was built to be used to streamline the submission of ECE Program of Study forms. All matriculating Duke graduate students, both Masters and PhD students, are required to fill out a departmental Program of Study form before enrollment. The department uses this form to gain a sense of what courses each student plans on taking during their time at Duke. Once students fill out the form, they must send it to their designated departmental advisor. The advisor rejects or approves the schedule and on approval submits it to the Director of Graduate Studies for approval. The approval process currently is done on paper, posing an issue for the department to keep track of each individual form for each student. Additionally, the department has to manage sending forms back and forth from advisors to students in person or over email when forms are rejected or approved. This application automates the entire process of creating forms, approving or rejecting forms, and tracking any changes related to a student’s planned course of study.
 # How to Run
+The project is set up with Docker. After cloning the repository run:
+
+```
+sudo docker compose build
+sudo docker compose up
+```
+
 
 # Functionalities 
 
