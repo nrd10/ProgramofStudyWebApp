@@ -13,7 +13,12 @@ review of Program of Study forms for Duke ECE graduate students.
 The application handles 4 different user types: Student accounts, Advisor accounts, DGS accounts, 
 and Adminstrator accounts. Each account has access to a separate set of features that is explained below.
 # Functionalities: Students
-The web application 
+A Student account can  either be "MEng", "MS", or "PhD" corresponding to MEng, MS, and PhD graduate students, respectively.
+Each student is able to create and submit Program of Study form through the application. 
+The application's database contains all of Duke's courses, allowing allowing for the submission of forms populated
+with courses each student plans on enrolling in in their time at Duke. The Django Select2 
+library was used to allow students to easily search and select courses for each field in the Program of Study form.
+After submitting completed forms, students will receive email notifications when a form is either approved or rejected. 
 
 # Functionalities: Advisors
 
