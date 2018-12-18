@@ -87,7 +87,7 @@ access to a view (ListView) that allows them to see all submitted program of stu
 The meng, ms, and phd application each make use of Django's filters API to allow DGS and administrator 
 accounts to easily find program of study forms for each type of student.
 
-# Forms
+# General Setup: Forms
 The meng, ms, and phd applications all make use of ModelForms located in forms.py for each application. 
 Students can view, fill out and submit these forms to represent their program of study. The Django Select2 
 library was used to allow students to easily search and select courses for each field in each distinct model. 
