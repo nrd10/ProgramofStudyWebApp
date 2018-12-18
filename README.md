@@ -102,10 +102,12 @@ access to a view (ListView) that allows them to see all submitted program of stu
 The meng, ms, and phd application each make use of Django's filters API to allow DGS and administrator 
 accounts to easily find program of study forms for each type of student.
 
-# General Setup: Forms
+# General Setup: Form Validation
+Each Program of Study form was validated to abide by the following constraints:
+1. Courses could not be counted more than one time in any Program of Study form
+
 The meng, ms, and phd applications all make use of ModelForms located in forms.py for each application. 
-Students can view, fill out and submit these forms to represent their program of study. The Django Select2 
-library was used to allow students to easily search and select courses for each field in each distinct model. 
+Students can view, fill out and submit these forms to represent their program of study. 
 Validation was added to these student program of study forms to meet specific constraints outlined by the 
 Duke ECE department. Specifically, courses are not counted for more than one field, and  no more than 2 
 Independent Study courses can be used towards a student's program of study.
