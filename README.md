@@ -86,14 +86,31 @@ If forms are rejected by a DGS account, student's must resubmit an amended Progr
 
 # Custom Admin Interface
 
+# Authentication
+The web application makes use of of the OAuth 2.0 authentication protocol rather than Django's built in login system. The authentication framework
+is utilized as it is an industry standard authentication protocol, and to allow users of the web application to authenticate with their Duke credentials.
+Administrators must first register new users through the application's Custom Admin Interface. When creating a new user, administrators must
+associate a Duke netID with each user. After creating a new user in the database, these users will be recognized by the application and will then
+be able to login using their Duke netID and Duke password. 
+
+The authentication framework was coded with assistance from [this tutorial](https://gist.github.com/billhanyu/788358f01eea969b6d1dfd9fb0d87750).
+
+After registering an App in the Duke CoLab App Manger as mentioned in step 1 of the above tutorial, when users click the Login button on the main page, 
+they are redirected to the correct URL with the specified parameters as in step 2 of the above tutorial. **Note**: A Client ID and Client Secret were 
+taken from the App that was registered in step 1. These parameters are specified in the .env file specified above, that is accessible by the 
+Docker container. To get OAuth 2.0 to work in Django, in step 2 the user is redirected to a middle webpage which is able to catch the Access Token 
+returned by the redirect URL. After the middle webpage catches the token, it immediately makes it request to Duke's OAuth sever with the access token
+to correctly authenticate the user. In this project, the view that initiates the initial redirect request is: **duke_login** found 
+in *administration.views.py*. The view handling the middle webpage to correctly retrieve the Access Token is **middle_request** found in
+*shared.views.py*. The view that handles the final step in authenticating, sending a GET request with the Access Token, is 
+**OIT_login** found in *shared.views.py*.
+
 # Code Organzation
 The Django project is titled 'programofstudy' and is setup with 5 different applications: meng, ms, phd, 
 administration, and shared. Meng, ms, and phd handle urls, views, models, etc. for MEng, MS, and PhD program of 
 study forms respectively. The shared app primarily contains templates and models that are utilized. by the majority 
 of the other applications. For example, shared contains the Course and User models. The administration app contains 
 views, urls, and templates for the custom admin interface.
-
-# Authentication
 
 # General Setup: Models
 The models in the shared app are used as Foreign Keys or ManytoManyFields in the models im the meng, ms, and phd applications. 
