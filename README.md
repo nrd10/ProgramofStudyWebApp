@@ -63,6 +63,11 @@ commentary on why the form was rejected is shown.
 ![Advisor_View](/uploads/56f9f03ac1ed5e54228aa1f63542b12a/Advisor_View.png)
 
 # Functionalities: DGS
+Functions available to advisors are summarized below:
+1. DGS accounts can **view submitted Program of Study forms for all Program of Study forms approved by an Advisor**
+2. DGS accounts can **Reject or Approve forms** already approved by an Advissor
+3. DGS accounts can **leave comments** justifying why they rejected students in order to inform students why their form was rejected
+4. DGS accounts will **receive email notifications** of the number of Advisor approved Program of Study forms that are awaiting their review
 
 # Functionalities: Administrators
 
