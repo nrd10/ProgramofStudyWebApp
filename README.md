@@ -127,10 +127,6 @@ approve a form, reject a form, and search for a specific type of form. Some of t
 function-based views are repeated for Advisor and DGS accounts. For example, the Advisor accounts have 
 access to a view (ListView) that allows them to see all submitted program of study forms for students who they advise.
 
-# Search
-The meng, ms, and phd application each make use of Django's filters API to allow DGS and administrator 
-accounts to easily find program of study forms for each type of student.
-
 # General Setup: Form Validation
 Each Program of Study form was validated to abide by the following constraints:
 1. Courses could **not be counted more than one time** in any Program of Study form
