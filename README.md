@@ -84,8 +84,15 @@ If forms are rejected by a DGS account, student's must resubmit an amended Progr
 
 # Functionalities: Administrators
 Functions available to Administrators are summarized below:
-1. Administrators can **access the Django Admin Interface**
-2. Administrators can **access all of the features in the Custom Admin Interface**
+1. Administrators can **access all of the features in the Custom Admin Interface**
+
+Django's built in Admin Interface requires knowledge on how Django models were built. Since no administrators in Duke's ECE department helped 
+build this application, it would be tough for any administrators to be comfortable populating and editing data models through the Admin Interface.
+As a result, we built a Custom Admin Interface that requires less knowledge about the underlying data tables in the database on the part of administrators.
+This new interface allows users the same functionalities as the Django Admin Interface. Administrators can search, delete and create new data entries in
+almost all of the data tables without having to actually know the names and structure of each data table. Additional features were also added to the 
+Custom Admin Inteface to expedite the process of creating new users and importing data into data tables. The features of the interface are 
+explained in the section below.
 
 # Custom Admin Interface
 
