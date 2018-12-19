@@ -51,11 +51,17 @@ Functions available to advisors are summarized below:
 2. Advisors can Reject or Approve forms for their advisees
 3. Advisors can leave comments justifying why they rejected students in order to inform students why their form was rejected
 4. Advisors will receive email notifications of the number of submitted Program of Study forms that are awaiting their review
+
 Advisor accounts have access to features allowing them to review submitted Program of Study forms. Each student account, when created
 is assigned an Advisor. When a student submits a Program of Study form, their assigned Advisor will gain access to the submitted 
 form and have the ability to Approve or Reject the form. Advisors are able to view, approve, and reject Program of Study forms for any of their Advisees
 (student accounts associated with that Advisor). Once Program of Study forms are Approved by an Advisor, they are viewable by DGS accounts 
-who then must approve them. If they are rejected, student's must resubmit an amended Program of Study form.
+who then must approve them. If they are rejected, student's must resubmit an amended Program of Study form. The image below shows
+the view an Advisor receives when viewing a submitted POS Form. In the image below the Advisor rejected the form and the Advisor's
+commentary on why the form was rejected is shown. 
+
+![Advisor_View](/uploads/56f9f03ac1ed5e54228aa1f63542b12a/Advisor_View.png)
+
 # Functionalities: DGS
 
 # Functionalities: Administrators
