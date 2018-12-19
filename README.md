@@ -72,8 +72,11 @@ Functions available to advisors are summarized below:
 DGS accounts have access to features allowing them to review all Program of Study forms Approved by an Advisor. 
 Once Program of Study forms are Approved by an Advisor, they are viewable by DGS accounts.
 If forms are rejected by a DGS account, student's must resubmit an amended Program of Study form. The image below shows
-the view a DGS account receives when viewing a submitted POS Form. 
+the view a DGS account receives when viewing a submitted POS Form:
+![DGS_Form_View](/uploads/3a625a9f35816c934d61310cfb33ba4f/DGS_Form_View.png)
 
+The image below shows the view a DGS account will view when searching for previously reviewed forms:
+![DGS_Form_Search](/uploads/30c0a3a5af570f199a033809603923bb/DGS_Form_Search.png)
 
 # Functionalities: Administrators
 
