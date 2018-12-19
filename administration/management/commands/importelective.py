@@ -75,7 +75,9 @@ def get_urls():
 
     # strings to build URL to make request from for classes
     begin = "https://streamer.oit.duke.edu/curriculum/courses/subject/"
-    ending = "?access_token=94fbc0640ed3e6e2e70f942dd4867a33"
+#    ending = "?access_token=94fbc0640ed3e6e2e70f942dd4867a33"
+    ending = "?access_token="+TOKEN
+
     #Get only unique URLS
     finaledits = list(OrderedDict.fromkeys(edits))
     #list holding final URLS
