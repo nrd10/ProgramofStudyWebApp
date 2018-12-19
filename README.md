@@ -96,7 +96,8 @@ Administrators must first register new users through the application's Custom Ad
 associate a Duke netID with each user. After creating a new user in the database, these users will be recognized by the application and will then
 be able to login using their Duke netID and Duke password. 
 
-The authentication framework was coded with assistance from [this tutorial](https://gist.github.com/billhanyu/788358f01eea969b6d1dfd9fb0d87750).
+The authentication protocol was integrated into the web application with assistance from 
+[this tutorial](https://gist.github.com/billhanyu/788358f01eea969b6d1dfd9fb0d87750).
 
 After registering an App in the Duke CoLab App Manger as mentioned in step 1 of the above tutorial, when users click the Login button on the main page, 
 they are redirected to the correct URL with the specified parameters as in step 2 of the above tutorial. **Note**: A Client ID and Client Secret were 
