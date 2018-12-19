@@ -47,10 +47,10 @@ The screenshot below shows an example of the form creation page accessible by st
 
 # Functionalities: Advisors
 Functions available to advisors are summarized below:
-1. Advisors can view submitted Program of Study forms for student's who are marked as their Advisees
-2. Advisors can Reject or Approve forms for their advisees
-3. Advisors can leave comments justifying why they rejected students in order to inform students why their form was rejected
-4. Advisors will receive email notifications of the number of submitted Program of Study forms that are awaiting their review
+1. Advisors can **view submitted Program of Study forms for student's who are marked as their Advisees**
+2. Advisors can **Reject or Approve forms** for their advisees
+3. Advisors can **leave comments** justifying why they rejected students in order to inform students why their form was rejected
+4. Advisors will **receive email notifications** of the number of submitted Program of Study forms that are awaiting their review
 
 Advisor accounts have access to features allowing them to review submitted Program of Study forms. Each student account, when created
 is assigned an Advisor. When a student submits a Program of Study form, their assigned Advisor will gain access to the submitted 
