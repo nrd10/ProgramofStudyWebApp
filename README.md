@@ -69,6 +69,12 @@ Functions available to advisors are summarized below:
 3. DGS accounts can **leave comments** justifying why they rejected students in order to inform students why their form was rejected
 4. DGS accounts will **receive email notifications** of the number of Advisor approved Program of Study forms that are awaiting their review
 
+DGS accounts have access to features allowing them to review all Program of Study forms Approved by an Advisor. 
+Once Program of Study forms are Approved by an Advisor, they are viewable by DGS accounts.
+If forms are rejected by a DGS account, student's must resubmit an amended Program of Study form. The image below shows
+the view a DGS account receives when viewing a submitted POS Form. 
+
+
 # Functionalities: Administrators
 
 # Custom Admin Interface
