@@ -83,6 +83,9 @@ If forms are rejected by a DGS account, student's must resubmit an amended Progr
 
 
 # Functionalities: Administrators
+Functions available to Administrators are summarized below:
+1. Administrators can **access the Django Admin Interface**
+2. Administrators can **access all of the features in the Custom Admin Interface**
 
 # Custom Admin Interface
 
