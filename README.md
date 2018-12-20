@@ -123,6 +123,13 @@ they are not already in the web application's Course table. **Note**: This funct
 retains the same name, the database will import the new Course listing and will retain the old Course listing. This means that two different Course listings
 with the same name will be within the web application's database. Administrators should run this function every semester to update the Course table within
 the database with new Course listings that are offered by Duke.
+7. **Delete all Courses** in the database. This functionality makes it easier to completely erase all of the Courses currently in the database. 
+8. Create a Program of Study form **on behalf of a student**. This functionality allows Administrators to submit a Program of Study form for a student.
+This may be necessary if a student decides to have a unique set of Courses that they would like to take that does not abide by the normal form validation
+procedure. For example, if a student wants a concentration course to count as both an Elective and a Concentration Course, this will not be possible
+if a student submits a Program of Study form as Courses cannot count twice. If after discussing with the DGS or an Advisor that this is okay, an Administrator
+can submit the form for the student. These submission functionalities do not have the same Form Validation as the student submisssion functionalities. This
+allows the Administrator account greater freedom in submitting a Program of Study form. 
 
 # Authentication
 The web application makes use of of the OAuth 2.0 authentication protocol rather than Django's built in login system. The authentication framework
