@@ -107,6 +107,13 @@ values for the following columns in order:Student ID, Last Name, First Name, Ema
 This features allows administrators to avoid having to individually create a new user for all students in a class. 
 After users Submit the CSV file, the users in the CSV file will be uploaded into the web application's database. An example
 CSV file is within the repository and named **ExampleNETIDStudentSpreadsheet.csv**.
+5. **Import all of Duke's offered Courses through Duke's Curriculum API**. Any Duke University user with Duke credentials can create an API Key for 
+Duke's API Catalog. After creating one and setting a parameter in the .env file accessible by the Docker container running this project, 
+the web application is able to make requests to the API for Duke's course listings. This function makes calls to that API to import all of 
+Duke's courses. Due to the fact that the import is not instantaneous and the fact that the Gunicorn WGSI server running in the Docker container 
+times out after a minute passess in any request, this function must run asynchronously. This web application makes use of the Celery project with
+built in Django support that supports asynchronous tasks. Through Celery, this Course import can run in the background and allow users to navigate
+to other sections of the web application as courses continue to be imported.
 
 # Authentication
 The web application makes use of of the OAuth 2.0 authentication protocol rather than Django's built in login system. The authentication framework
@@ -180,3 +187,4 @@ Duke ECE department. Specifically, courses are not counted for more than one fie
 Independent Study courses can be used towards a student's program of study.
 # General Setup: Management Commands
 
+# Asynchronous Tasks
