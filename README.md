@@ -158,6 +158,8 @@ study forms respectively. The shared app primarily contains templates and models
 of the other applications. For example, shared contains the Course and User models. The administration app contains 
 views, urls, and templates for the custom admin interface.
 
+# General Setup: Environment File
+
 # General Setup: Models
 The models in the shared app are used as Foreign Keys or ManytoManyFields in the models im the meng, ms, and phd applications. 
 These models are User (a custom User model), Course, Concentration, and Course Type. The Course Type model stores two values, 
