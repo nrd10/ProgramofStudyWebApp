@@ -83,8 +83,29 @@ If forms are rejected by a DGS account, student's must resubmit an amended Progr
 
 
 # Functionalities: Administrators
+Functions available to Administrators are summarized below:
+1. Administrators can **access all of the features in the Custom Admin Interface**
+
+Django's built in Admin Interface requires knowledge on how Django models were built. Since no administrators in Duke's ECE department helped 
+build this application, it would be tough for any administrators to be comfortable populating and editing data models through the Admin Interface.
+As a result, we built a Custom Admin Interface that requires less knowledge about the underlying data tables in the database on the part of administrators.
+This new interface allows users the same functionalities as the Django Admin Interface. Administrators can search, delete and create new data entries in
+almost all of the data tables without having to actually know the names and structure of each data table. Additional features were also added to the 
+Custom Admin Inteface to expedite the process of creating new users and importing data into data tables. The features of the interface are 
+explained in the section below.
 
 # Custom Admin Interface
+Administrators can do the following things through the Custom Admin Interface:
+1. **Search for Users, Courses, and all types of Program of Study forms** stored in the database
+2. **Delete Users, Courses and all types of Program of Study forms** stored in the database 
+2. **Create individual new Courses** in the database
+3. **Create new Users individually** in the database. Administrators should create users in this fashion as the User Creation page in the Custom
+Admin Interface requires a NetID to be entered when registering a user but not a password. This is desired as users will be authenticating
+with their Duke credentials and the database will not be storing their Duke password. 
+4. **Create new Users through an uploaded CSV file**. This feature allows an administrator to upload a CSV file with each row having
+values for the following columns in order:Student ID, Last Name, First Name, Email, NetID, Academic Plan (type of student), and Advisor. 
+This features allows administrators to avoid having to individually create a new user for all students in a class. 
+After users Submit the CSV file, the users in the CSV file will be uploaded into the web application's database. 
 
 # Authentication
 The web application makes use of of the OAuth 2.0 authentication protocol rather than Django's built in login system. The authentication framework
@@ -93,7 +114,8 @@ Administrators must first register new users through the application's Custom Ad
 associate a Duke netID with each user. After creating a new user in the database, these users will be recognized by the application and will then
 be able to login using their Duke netID and Duke password. 
 
-The authentication framework was coded with assistance from [this tutorial](https://gist.github.com/billhanyu/788358f01eea969b6d1dfd9fb0d87750).
+The authentication protocol was integrated into the web application with assistance from 
+[this tutorial](https://gist.github.com/billhanyu/788358f01eea969b6d1dfd9fb0d87750).
 
 After registering an App in the Duke CoLab App Manger as mentioned in step 1 of the above tutorial, when users click the Login button on the main page, 
 they are redirected to the correct URL with the specified parameters as in step 2 of the above tutorial. **Note**: A Client ID and Client Secret were 
