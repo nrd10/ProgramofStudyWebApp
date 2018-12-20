@@ -206,3 +206,5 @@ Independent Study courses can be used towards a student's program of study.
 # General Setup: Management Commands
 
 # Asynchronous Tasks
+
+# Docker Setup
