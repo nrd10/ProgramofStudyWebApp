@@ -113,7 +113,16 @@ the web application is able to make requests to the API for Duke's course listin
 Duke's courses. Due to the fact that the import is not instantaneous and the fact that the Gunicorn WGSI server running in the Docker container 
 times out after a minute passess in any request, this function must run asynchronously. This web application makes use of the Celery project with
 built in Django support that supports asynchronous tasks. Through Celery, this Course import can run in the background and allow users to navigate
-to other sections of the web application as courses continue to be imported.
+to other sections of the web application as courses continue to be imported. How asynchronous tasks are built in this application is explained 
+more in the Asynchronous Tasks section.
+6. **Update all of Duke's offered Courses through Duke's Curriculum API**. This function works similarly to the full Course import function in that
+it makes use of Duke's API Catalog to import courses. This function should be run when the Course table in the Postgres database is already fully updated.
+This function updates the Courses within the database. It checks if a Course listing had it's name changed and will update the name of the course for 
+all courses in Duke's Course Catalog. Additionally, if any new Courses are offered in one semester, it will import those Courses into the database if 
+they are not already in the web application's Course table. **Note**: This function **updates Courses by their listing**. If a Course's listing changes, but
+retains the same name, the database will import the new Course listing and will retain the old Course listing. This means that two different Course listings
+with the same name will be within the web application's database. Administrators should run this function every semester to update the Course table within
+the database with new Course listings that are offered by Duke.
 
 # Authentication
 The web application makes use of of the OAuth 2.0 authentication protocol rather than Django's built in login system. The authentication framework
