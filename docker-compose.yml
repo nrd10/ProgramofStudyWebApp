@@ -25,6 +25,7 @@ services:
      - "8000:8000"
    depends_on:
      - db
+     - redis
  celery:
    build: .
    command: celery -A programofstudy worker -l info
@@ -33,7 +34,6 @@ services:
    depends_on:
      - db
      - redis
-     - web
    expose:
      - "8000"
  celerybeat:
@@ -44,4 +44,3 @@ services:
    depends_on:
      - db
      - redis
-     - web
