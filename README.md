@@ -103,9 +103,9 @@ Administrators can do the following things through the Custom Admin Interface:
 Admin Interface requires a NetID to be entered when registering a user but not a password. This is desired as users will be authenticating
 with their Duke credentials and the database will not be storing their Duke password. 
 4. **Create new Users through an uploaded CSV file **. This feature allows an administrator to upload a CSV file with each row having
-data on a user's NetID, Advisor, and what type of graduate student they are. This features allows administrators to avoid having to individually
-create a new user for all students in a class. After users Submit the CSV file, the users in the CSV file will be uploaded into the web 
-application's database. 
+values for the following columns in order:Student ID, Last Name, First Name, Email, NetID, Academic Plan (type of student), and Advisor. 
+This features allows administrators to avoid having to individually create a new user for all students in a class. 
+After users Submit the CSV file, the users in the CSV file will be uploaded into the web application's database. 
 
 # Authentication
 The web application makes use of of the OAuth 2.0 authentication protocol rather than Django's built in login system. The authentication framework
