@@ -7,8 +7,8 @@ RUN pip3 install -r requirements.txt
 COPY . /code/
 RUN groupadd posgroup
 RUN useradd -m -G posgroup posuser
-RUN chown -R posuser:posgroup /code/
-RUN chown -R posuser:posgroup .
+# RUN chown -R posuser:posgroup /code/
+# RUN chown -R posuser:posgroup .
 RUN mkdir /var/run/celery
 RUN chown -R posuser:posgroup /var/run/celery/
 
