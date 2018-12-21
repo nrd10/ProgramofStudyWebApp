@@ -4,7 +4,7 @@ RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
 RUN pip3 install -r requirements.txt
-COPY . /code/
+#COPY . /code/
 RUN groupadd posgroup
 RUN useradd -m -G posgroup posuser
 RUN mkdir /var/run/celery
