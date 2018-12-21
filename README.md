@@ -208,8 +208,8 @@ Independent Study courses can be used towards a student's program of study.
 # Asynchronous Tasks
 
 # Docker Setup
-The web application makes use of Docker and is built through docker-compose. Each command in the Dockerfile is
-explained below:
+The web application makes use of Docker and is built through docker-compose. Each command in the Dockerfile used to
+build our own custom image is explained below:
 1. `FROM python:3.5`: Sets up base project set-up to install all the dependencies 
 to run your application Python as our base since Django is a Python project.
 2. `ENV PYTHONUNBUFFERED 1`: Creates an environment variable and passes and standard output
@@ -226,4 +226,57 @@ to be printed to the Terminal.
 newly created Group Account.
 12. `USER posuser`: Sets the current user running this container as "posuser". This makes sure that the container
 is not running with root privileges. 
+
+This above image is used in multiple containers as shown below: 
+`version: '3'
+
+services:
+ db:
+   image: postgres
+   environment:
+     - POSTGRES_USER=POSuser
+     - POSTGRES_PASSWORD=programofstudy
+     - POSTGRES_DB=POS
+ redis:
+   image: "redis:alpine"
+ cache:
+   image: memcached
+   ports:
+     - "11211:11211"
+   entrypoint:
+    - memcached
+    - -m 64
+ web:
+   build: .
+   command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py coursetypes && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
+   volumes:
+     - .:/code
+   ports:
+     - "8000:8000"
+   depends_on:
+     - db
+     - redis
+ celery:
+   build: .
+   command: celery -A programofstudy worker -l info
+   volumes:
+     - .:/code
+   depends_on:
+     - db
+     - redis
+   expose:
+     - "8000"
+ celerybeat:
+   build: .
+   command: celery -A programofstudy beat -l info --pidfile="/var/run/celery/celerybeat.pid" --schedule="/var/run/celery/celerybeat-schedule"
+   volumes:
+     - .:/code
+   depends_on:
+     - db`
+
+
+
+
+
+
 
