@@ -228,9 +228,7 @@ newly created Group Account.
 is not running with root privileges. 
 
 This above image is used in multiple containers as shown in the `docker-compose.yml` file below: 
-
-version: '3'
-
+```version: '3'
 services:
  db:
    image: postgres
@@ -274,7 +272,7 @@ web:
      - .:/code
    depends_on:
      - db
-
+```
 
 
 
