@@ -227,8 +227,9 @@ newly created Group Account.
 12. `USER posuser`: Sets the current user running this container as "posuser". This makes sure that the container
 is not running with root privileges. 
 
-This above image is used in multiple containers as shown below: 
-`version: '3'
+This above image is used in multiple containers as shown in the `docker-compose.yml` file below: 
+
+version: '3'
 
 services:
  db:
@@ -246,7 +247,7 @@ services:
    entrypoint:
     - memcached
     - -m 64
- web:
+web:
    build: .
    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py coursetypes && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
    volumes:
@@ -272,7 +273,7 @@ services:
    volumes:
      - .:/code
    depends_on:
-     - db`
+     - db
 
 
 
