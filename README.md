@@ -208,3 +208,22 @@ Independent Study courses can be used towards a student's program of study.
 # Asynchronous Tasks
 
 # Docker Setup
+The web application makes use of Docker and is built through docker-compose. Each command in the Dockerfile is
+explained below:
+1. "FROM python:3.5": Sets up base project set-up to install all the dependencies 
+to run your application Python as our base since Django is a Python project.
+2. "ENV PYTHONUNBUFFERED 1": Creates an environment variable and passes and standard output
+to be printed to the Terminal. 
+3. "RUN mkdir /code": Creates a directory within the container.
+4. "WORKDIR /code": Specifies a new default directory within the Docker image's file system.
+5. "ADD requirements.txt /code/": Adds requirements.txt file to /code directory
+6. "RUN pip3 install -r requirements.txt": installs requirement files that are needed to run the Django project.
+7. "ADD . /code/": Copys all project files in current directory into /code directory.
+8. "RUN groupadd posgroup": Creates a new Group Account on the host Linux OS
+9. "RUN useradd -m -G posgroup posuser": Creates a new user "posuser" to the newly created Group Account.
+10. "RUN mkdir /var/run/celery": Creates a new directory
+11. "RUN chown -R posuser:posgroup /var/run/celery/": Makes the newly created directory owned by the
+newly created Group Account.
+12. USER posuser: Sets the current user running this container as "posuser". This makes sure that the container
+is not running with root privileges. 
+
