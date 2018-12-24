@@ -326,6 +326,10 @@ services:
      - db
 ```
 
+This docker-compose.yml file is used to define multiple services that are needed to be running in order to allow the entire 
+application to function correctly. The first three services: db, redis, and cache use images downloaded from Docker Hub.
+1. db: This service contains the Postgres database utilized by the web application. It makes use of variables set in our 
+.env file to correctly configure the Postgres database name, user and password.
 
 
 
