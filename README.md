@@ -24,10 +24,6 @@ does not these variable values. The following variables should be set in a .env 
 ```
 SECRET_KEY=
 DEBUG=
-DB_NAME=
-DB_USER=
-DB_PASSWORD=
-DB_HOST=
 TOKEN = 
 SENDGRID_API_KEY = 
 CLIENT_ID = 
