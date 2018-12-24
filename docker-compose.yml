@@ -18,9 +18,7 @@ services:
     - -m 64
  web:
    build: .
-   command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1; done; python3 manage.py makemigrations &&
-   python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py coursetypes 
-    && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
+   command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py coursetypes && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
    volumes:
      - .:/code
    ports:
