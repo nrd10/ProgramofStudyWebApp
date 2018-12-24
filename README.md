@@ -11,7 +11,7 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 # How to Run
 To successfully build the project users must:
 1. Clone the repository, add and correctly configure an environment file (.env)
-2. Run the following command when navigated to the parent directory containing the docker-compose.yml file
+2. Run the following command when navigated to the parent directory containing the `docker-compose.yml` file
 
 ```
 sudo docker compose up
@@ -50,12 +50,12 @@ section.
 5. `CLIENT_SECRET`: This refers to the Secret associated with the application users must create in the Duke CoLab App Manager to 
 allow users to authentication through OAuth 2.0. Please refer to the Authentication section for more details. 
 6. `DOCKER_NAME`: This variable should be set with the name you want to use for your Postgres database. This variable is used by 
-the docker-compose.yml file when building a container for the database,  as well as by the Django project to allow it to 
+the `docker-compose.yml` file when building a container for the database,  as well as by the Django project to allow it to 
 communicate with the database. 
 7. `DOCKER_USER`: This variable refers to the Postgres database username you want to use. It is used by the Django project and 
-docker-compose.yml file in the same ways DOCKER_NAME is used. 
+`docker-compose.yml` file in the same ways DOCKER_NAME is used. 
 8. `DOCKER_PASSWORD`: This variable is the password associated with the Postgres database username. Again, it is used by the Docker
-project and docker-compose.yml file in the same ways DOCKER_NAME and DOCKER_USER are used.
+project and `docker-compose.yml` file in the same ways DOCKER_NAME and DOCKER_USER are used.
 9. `password`: This variable should be set with the password users want to use for their superuser account to login to 
 Django's Admin Interface. When the project is built in Docker a superuser account is created with the value set for 'password' with 
 the username 'superuser'. How this is implemented is explained more in the Management Commands section.
@@ -326,9 +326,10 @@ services:
      - db
 ```
 
-This docker-compose.yml file is used to define multiple services that are needed to be running in order to allow the entire 
+This `docker-compose.yml` file is used to define multiple services that are needed to be running in order to allow the entire 
 application to function correctly. The first three services: db, redis, and cache use images downloaded from Docker Hub.
-1. db: This service contains the Postgres database utilized by the web application. It makes use of variables set in our 
+The following descriptions summarize what each service does and how each service was configured:
+1. `db`: This service contains the Postgres database utilized by the web application. It makes use of variables set in our 
 .env file to correctly configure the Postgres database name, user and password.
 
 
