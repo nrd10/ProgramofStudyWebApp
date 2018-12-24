@@ -367,6 +367,23 @@ The following descriptions summarize what each service does and how each service
 2. `redis`: This service is used as the message broker for the celery and celerybeat services explained later. As explained in 
 the [Asynchronous & Background Tasks](#asynchronous-background-tasks) section Celery makes use of a message broker to feed messages
 between workers and clients. This service is used to act as the message broker for Celery in this web application.
+3. `cache`: This service is used to allow the web application to cache frequently used web pages.
+
+The next 3 services: web, celery, and celerybeat are built using the Dockerfile specified above. In all three we specify to build
+each container using the Dockerfile above by feeding '.' to the build docker-compose configuration line. This specifies that the
+Dockerfile to use to build this service is within our current directory. In each service we also mount the current directory to
+the /code directory. In our Dockerfile we created a /code directory and copied all of the project files in our current directory to 
+the /code directory as shown above. Here we are now mounting our current directory as a data volume in each of the 3 services. This
+step allows any changes that are made to the project directory to be reflected in each container's /code directory. This means that
+any changes to files within the current directory will also change matching files in the /code directory since the /code directory
+contains a copy of each file in the current directory.
+
+4. `web`: This service is the container where the Django web application runs. When the container is started the lines specified
+in command are run. The commands that are run a) create database migrations b) migrate those migrations to the database c) 
+run multiple Django management commands and d) deploy the Django project on a Gunicorn web server to begin accepting connections.
+The management commands are explained in greater detail in [Management Commands](#management-commands). The management commands 
+that are run when this container starts add permission groups, populate the Course Type table, and create a superuser account 
+if it does not already exist.
 
 
 
