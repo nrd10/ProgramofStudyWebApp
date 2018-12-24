@@ -378,13 +378,22 @@ step allows any changes that are made to the project directory to be reflected i
 any changes to files within the current directory will also change matching files in the /code directory since the /code directory
 contains a copy of each file in the current directory.
 
-4. `web`: This service is the container where the Django web application runs. When the container is started the lines specified
-in command are run. The commands that are run a) create database migrations b) migrate those migrations to the database c) 
-run multiple Django management commands and d) deploy the Django project on a Gunicorn web server to begin accepting connections.
+4. `web`: This service runs the Django project in the web application. When the container is started the lines specified
+in "command" are run. The commands that are run a) create database migrations b) migrate those migrations to the database c) 
+run multiple Django management commands and d) deploy the Django project on a Gunicorn web server to begin accepting web connections.
 The management commands are explained in greater detail in [Management Commands](#management-commands). The management commands 
 that are run when this container starts add permission groups, populate the Course Type table, and create a superuser account 
-if it does not already exist.
-
+if it does not already exist. 
+5. `celery`: This service runs Celery worker processes. As explained in [Asynchronous & Background Tasks](#asynchronous-background-tasks)
+Celery is a task queue. Celery worker processes wait to be delivered a message from our message broker, Redis, when it detects a task
+is in the queue. This container waits to be sent messages from Redis and will then run the associated tasks asynchronously and in
+the background. This allows users to navigate to different web pages after initiating a certain task. For example, any task related
+to import Courses from the Duke API run asynchronously due to this service. 
+6. `celery-beat`: This service runs a Celery beat, a scheduler. Certain tasks, such as emailing DGS and Adviser accounts, are configured
+in Celery in the Django project to run at a scheduled time every day. Celery beat is the scheduler that sets the exact time at which
+emails are sent out to DGS and Advissor accounts. This service is responsible for allocating scheduled tasks on the task queue.
+When these tasks are within the queue, Redis will detect them and send a message to the `celery` service which will run the task
+asynchronously. 
 
 
 
