@@ -41,14 +41,20 @@ Duke that has a Duke NetID. This token allows the Django project to make API cal
 which are explained more later in the README. 
 3. `SENDGRID_API_KEY`: This variable should be set with a SendGrid API Key. This can be obtained by registering for a SendGrid 
 account and creating an API Key. This variable is used to allow the Django project to send emails through SendGrid. 
-4. `DOCKER_NAME`: This variable should be set with the name you want to use for your Postgres database. This variable is used by 
+4. `CLIENT_ID`: This variable refers to the Client ID associated with a new app created in the Duke CoLab App Manager. This app
+is used to allow for Duke users to authenticate in the web application with their Duke  NetID's through OAuth 2.0. Both the ID
+and the Secret associated with the CoLab app are necessary to allow for authentication. More is explained on this in the Authentication
+section. 
+5. `CLIENT_SECRET`: This refers to the Secret asssociated with the application users must create in the Duke CoLab App Manager to 
+allow users to authentication through OAuth 2.0. Please refer to the Authentication section for more details. 
+6. `DOCKER_NAME`: This variable should be set with the name you want to use for your Postgres database. This variable is used by 
 the docker-compose.yml file when building a container for the database,  as well as by the Django project to allow it to 
 communicate with the database. 
-5. `DOCKER_USER`: This variable refers to the Postgres database username you want to use. It is used by the Django project and 
+7. `DOCKER_USER`: This variable refers to the Postgres database username you want to use. It is used by the Django project and 
 docker-compose.yml file in the same ways DOCKER_NAME is used. 
-6. `DOCKER_PASSWORD`: This variable is the password associated with the Postgres database username. Again, it is used by the Docker
+8. `DOCKER_PASSWORD`: This variable is the password associated with the Postgres database username. Again, it is used by the Docker
 project and docker-compose.yml file in the same ways DOCKER_NAME and DOCKER_USER are used.
-7. `password`: This variable should be set with the password users want to use for their superuser account to login to 
+9. `password`: This variable should be set with the password users want to use for their superuser account to login to 
 Django's Admin Interface. When the project is built in Docker a superuser account is created with the value set for 'password' with 
 the username 'superuser'. How this is implemented is explained more in the Management Commands section.
 
