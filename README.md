@@ -91,7 +91,7 @@ communicate with the database.
 project and `docker-compose.yml` file in the same ways DOCKER_NAME and DOCKER_USER are used.
 9. `password`: This variable should be set with the password users want to use for their superuser account to login to 
 Django's Admin Interface. When the project is built in Docker a superuser account is created with the value set for 'password' with 
-the username 'superuser'. How this is implemented is explained more in the Management Commands section.
+the username 'superuser'. How this is implemented is explained more in the [Management Commands](#management-commands) section.
 
 **Note:** Docker-compose expects .env variables to be typed as so:
 ```
