@@ -9,7 +9,9 @@ for each student. Additionally, the department has to manage sending forms back 
 person or over email when forms are rejected or approved. This application automates the entire process of creating 
 forms, approving or rejecting forms, and tracking any changes related to a student’s planned course of study.
 # How to Run
-The project is set up with Docker. After cloning the repository run:
+To successfully build the project users must:
+1. Clone the repository, add and correctly configure an environment file (.env)
+2. Run the following command when navigated to the parent directory containing a docker-compose.yml file
 
 ```
 sudo docker compose up
