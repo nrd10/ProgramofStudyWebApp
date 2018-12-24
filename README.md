@@ -12,7 +12,6 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 The project is set up with Docker. After cloning the repository run:
 
 ```
-sudo docker compose build
 sudo docker compose up
 ```
 # Functionalities
@@ -205,7 +204,7 @@ Duke ECE department. Specifically, courses are not counted for more than one fie
 Independent Study courses can be used towards a student's program of study.
 # General Setup: Management Commands
 
-# Asynchronous Tasks
+# Asynchronous & Background Tasks
 
 # Docker Setup
 The web application makes use of Docker and is built through docker-compose. Each command in the Dockerfile used to
