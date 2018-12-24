@@ -24,14 +24,14 @@ does not these variable values. The following variables should be set in a .env 
 ```
 SECRET_KEY=
 DEBUG=
-TOKEN = 
-SENDGRID_API_KEY = 
-CLIENT_ID = 
-CLIENT_SECRET = 
-DOCKER_NAME = 
-DOCKER_USER = 
-DOCKER_PASSWORD = 
-password = 
+TOKEN= 
+SENDGRID_API_KEY= 
+CLIENT_ID= 
+CLIENT_SECRET= 
+DOCKER_NAME= 
+DOCKER_USER= 
+DOCKER_PASSWORD= 
+password= 
 
 ```
 
@@ -57,6 +57,14 @@ project and docker-compose.yml file in the same ways DOCKER_NAME and DOCKER_USER
 9. `password`: This variable should be set with the password users want to use for their superuser account to login to 
 Django's Admin Interface. When the project is built in Docker a superuser account is created with the value set for 'password' with 
 the username 'superuser'. How this is implemented is explained more in the Management Commands section.
+
+**Note:** Docker-compose expects .env variables to be typed as so:
+```
+key=value
+
+```
+
+Leave **no spaces** between the value and the equal sign.
 
 # Functionalities
 The web application, as stated above, handles the creation, submission, and 
