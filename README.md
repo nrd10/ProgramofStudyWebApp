@@ -16,6 +16,29 @@ To successfully build the project users must:
 ```
 sudo docker compose up
 ```
+
+# Environment File Configuration
+The .env file contains environment variables different components in the Django project rely upon. By setting these variables in a .env
+file, we maintain security and secrecy of certain variables so that everyone who clones this project or has access to this repository
+does not these variable values. The following variables should be set in a .env file:
+```
+SECRET_KEY=
+DEBUG=
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+TOKEN = 
+SENDGRID_API_KEY = 
+CLIENT_ID = 
+CLIENT_SECRET = 
+DOCKER_NAME = 
+DOCKER_USER = 
+DOCKER_PASSWORD = 
+password = 
+
+```
+
 # Functionalities
 The web application, as stated above, handles the creation, submission, and 
 review of Program of Study forms for Duke ECE graduate students. 
@@ -158,8 +181,6 @@ administration, and shared. Meng, ms, and phd handle urls, views, models, etc. f
 study forms respectively. The shared app primarily contains templates and models that are utilized. by the majority 
 of the other applications. For example, shared contains the Course and User models. The administration app contains 
 views, urls, and templates for the custom admin interface.
-
-# General Setup: Environment File
 
 # General Setup: Models
 The models in the shared app are used as Foreign Keys or ManytoManyFields in the models im the meng, ms, and phd applications. 
