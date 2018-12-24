@@ -35,7 +35,9 @@ password=
 
 ```
 
-1. `DEBUG`: This variable sets whether or not the Django project should be in Debug mode or not. 
+1. `SECRET_KEY`: This variable is the key in Django to secure signed data – it is vital you keep this secure, or 
+attackers could use it to generate their own signed values
+2. `DEBUG`: This variable sets whether or not the Django project should be in Debug mode or not. 
 2. `TOKEN`: This variable should be set equal to a DUKE API key. These can obtained by any person affiliated with 
 Duke that has a Duke NetID. This token allows the Django project to make API calls to Duke's Curriculum API, 
 which are explained more later in the README. 
@@ -45,7 +47,7 @@ account and creating an API Key. This variable is used to allow the Django proje
 is used to allow for Duke users to authenticate in the web application with their Duke  NetID's through OAuth 2.0. Both the ID
 and the Secret associated with the CoLab app are necessary to allow for authentication. More is explained on this in the Authentication
 section. 
-5. `CLIENT_SECRET`: This refers to the Secret asssociated with the application users must create in the Duke CoLab App Manager to 
+5. `CLIENT_SECRET`: This refers to the Secret associated with the application users must create in the Duke CoLab App Manager to 
 allow users to authentication through OAuth 2.0. Please refer to the Authentication section for more details. 
 6. `DOCKER_NAME`: This variable should be set with the name you want to use for your Postgres database. This variable is used by 
 the docker-compose.yml file when building a container for the database,  as well as by the Django project to allow it to 
