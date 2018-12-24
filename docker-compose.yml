@@ -4,9 +4,9 @@ services:
  db:
    image: postgres
    environment:
-     - POSTGRES_USER=POSuser
-     - POSTGRES_PASSWORD=programofstudy
-     - POSTGRES_DB=POS
+     - POSTGRES_USER=${DOCKER_USER}
+     - POSTGRES_PASSWORD=${DOCKER_PASSWORD}
+     - POSTGRES_DB=${DOCKER_NAME}
  redis:
    image: "redis:alpine"
  cache:
