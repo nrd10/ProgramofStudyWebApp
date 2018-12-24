@@ -8,6 +8,39 @@ The approval process currently is done on paper, posing an issue for the departm
 for each student. Additionally, the department has to manage sending forms back and forth from advisors to students in 
 person or over email when forms are rejected or approved. This application automates the entire process of creating 
 forms, approving or rejecting forms, and tracking any changes related to a student’s planned course of study.
+# Table of Contents
+1.0 [How to Run](#how-to-run)
+
+1.1 [Environment File Configuration](#environment-file-configuration)
+
+2.0 [Functionalities](#functionalities)
+
+2.1 [Functionalities: Students](#functionalities-students)
+
+2.2 [Functionalities: Advisors](#functionalities-advisors)
+
+2.3 [Functionalities: DGS](#functionalities-dgs)
+
+2.4 [Functionalities: Administrators](#functionalities-administrators)
+
+3.0 [Custom Admin Interface](#custom-admin-interface)
+
+4.0 [Authentication](#authentication)
+
+5.0 [General Setup](#general-setup)
+
+5.1 [General Setup: Models](#general-setup-models)
+
+5.2 [General Setup: Views](#general-setup-views)
+
+5.3 [General Setup: Form Validation](#general-setup-form-validation)
+
+6.0 [Management Commands](#management-commands)
+
+7.0 [Asynchronous & Background Tasks](#asynchronous-background-tasks)
+
+8.0 [Docker Setup](#docker-setup)
+
 # How to Run
 To successfully build the project users must:
 1. Clone the repository, add and correctly configure an environment file (.env)
@@ -204,7 +237,7 @@ in *administration.views.py*. The view handling the middle webpage to correctly 
 *shared.views.py*. The view that handles the final step in authenticating, sending a GET request with the Access Token, is 
 **OIT_login** found in *shared.views.py*.
 
-# Code Organization
+# General Setup
 The Django project is titled 'programofstudy' and is setup with 5 different applications: meng, ms, phd, 
 administration, and shared. Meng, ms, and phd handle urls, views, models, etc. for MEng, MS, and PhD program of 
 study forms respectively. The shared app primarily contains templates and models that are utilized. by the majority 
