@@ -204,6 +204,7 @@ Students can view, fill out and submit these forms to represent their program of
 Validation was added to these student program of study forms to meet specific constraints outlined by the 
 Duke ECE department. Specifically, courses are not counted for more than one field, and  no more than 2 
 Independent Study courses can be used towards a student's program of study.
+
 # General Setup: Management Commands
 
 # Asynchronous & Background Tasks
