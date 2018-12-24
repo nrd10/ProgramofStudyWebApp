@@ -363,7 +363,10 @@ This `docker-compose.yml` file is used to define multiple services that are need
 application to function correctly. The first three services: db, redis, and cache use images downloaded from Docker Hub.
 The following descriptions summarize what each service does and how each service was configured:
 1. `db`: This service contains the Postgres database utilized by the web application. It makes use of variables set in our 
-.env file to correctly configure the Postgres database name, user and password.
+.env file through the environment option to correctly configure the Postgres database name, user and password.
+2. `redis`: This service is used as the message broker for the celery and celerybeat services explained later. As explained in 
+the [Asynchronous & Background Tasks](#asynchronous-background-tasks) section Celery makes use of a message broker to feed messages
+between workers and clients. This service is used to act as the message broker for Celery in this web application.
 
 
 
