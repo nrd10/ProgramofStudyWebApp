@@ -188,7 +188,7 @@ in *administration.views.py*. The view handling the middle webpage to correctly 
 *shared.views.py*. The view that handles the final step in authenticating, sending a GET request with the Access Token, is 
 **OIT_login** found in *shared.views.py*.
 
-# Code Organzation
+# Code Organization
 The Django project is titled 'programofstudy' and is setup with 5 different applications: meng, ms, phd, 
 administration, and shared. Meng, ms, and phd handle urls, views, models, etc. for MEng, MS, and PhD program of 
 study forms respectively. The shared app primarily contains templates and models that are utilized. by the majority 
