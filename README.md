@@ -11,7 +11,7 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 # How to Run
 To successfully build the project users must:
 1. Clone the repository, add and correctly configure an environment file (.env)
-2. Run the following command when navigated to the parent directory containing a docker-compose.yml file
+2. Run the following command when navigated to the parent directory containing the docker-compose.yml file
 
 ```
 sudo docker compose up
@@ -34,6 +34,23 @@ DOCKER_PASSWORD =
 password = 
 
 ```
+
+1. `DEBUG`: This variable sets whether or not the Django project should be in Debug mode or not. 
+2. `TOKEN`: This variable should be set equal to a DUKE API key. These can obtained by any person affiliated with 
+Duke that has a Duke NetID. This token allows the Django project to make API calls to Duke's Curriculum API, 
+which are explained more later in the README. 
+3. `SENDGRID_API_KEY`: This variable should be set with a SendGrid API Key. This can be obtained by registering for a SendGrid 
+account and creating an API Key. This variable is used to allow the Django project to send emails through SendGrid. 
+4. `DOCKER_NAME`: This variable should be set with the name you want to use for your Postgres database. This variable is used by 
+the docker-compose.yml file when building a container for the database,  as well as by the Django project to allow it to 
+communicate with the database. 
+5. `DOCKER_USER`: This variable refers to the Postgres database username you want to use. It is used by the Django project and 
+docker-compose.yml file in the same ways DOCKER_NAME is used. 
+6. `DOCKER_PASSWORD`: This variable is the password associated with the Postgres database username. Again, it is used by the Docker
+project and docker-compose.yml file in the same ways DOCKER_NAME and DOCKER_USER are used.
+7. `password`: This variable should be set with the password users want to use for their superuser account to login to 
+Django's Admin Interface. When the project is built in Docker a superuser account is created with the value set for 'password' with 
+the username 'superuser'. How this is implemented is explained more in the Management Commands section.
 
 # Functionalities
 The web application, as stated above, handles the creation, submission, and 
