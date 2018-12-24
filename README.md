@@ -287,7 +287,7 @@ services:
    entrypoint:
     - memcached
     - -m 64
-web:
+ web:
    build: .
    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py coursetypes && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
    volumes:
