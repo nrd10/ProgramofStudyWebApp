@@ -349,7 +349,8 @@ that is built using this Dockerfile as explained later.
 10. `RUN mkdir /var/run/celery`: Creates a new directory
 11. `RUN chown -R posuser:posgroup /var/run/celery/`: Makes the newly created directory owned by the
 newly created Group Account.
-12. `USER posuser`: Sets the current user running this container as "posuser". This makes sure that the container
+12. `RUN chown -R posuser:posgroup /code/`: Makes the new Group own the /code directory and all of its subfiles. 
+13. `USER posuser`: Sets the current user running this container as "posuser". This makes sure that the container
 is not running with root privileges. We gave permissions to the Group this User is a part of to the folder "/var/run/celery" as 
 the user running the container based off this image needs access to this directory to correctly run Celery tasks. The containers
 used for Celery are explained in greater detail later in this section.
