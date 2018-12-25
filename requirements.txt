@@ -10,6 +10,7 @@ cffi==1.11.5
 chardet==3.0.4
 cryptography==2.3.1
 diff-match-patch==20121119
+disqus==0.0.4
 Django==2.0.6
 django-ajax-selects==1.7.0
 django-appconf==1.0.2
