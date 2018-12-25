@@ -63,72 +63,72 @@ class CurricularArea(models.Model):
 
 
 class PHDBachelorPOS(models.Model):
-    curriculararea = models.ForeignKey(CurricularArea, on_delete=models.SET_NULL, null = True,
+    curriculararea = models.ForeignKey(CurricularArea, on_delete=models.PROTECT,
     related_name="PHDBScurricular_area", verbose_name = "ECE Curricular Area")
-    gradececourseone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="PhDBSECEone",
+    gradececourseone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="PhDBSECEone",
     verbose_name = "Graduate ECE Course I")
     gradeceoneterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradeceonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradececoursetwo = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDBSECEtwo",
+    gradececoursetwo = models.ForeignKey(Course, on_delete=models.PROTECT,  related_name="PhDBSECEtwo",
     verbose_name = "Graduate ECE Course II")
     gradecetwoterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradecetwograde = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradececoursethree = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="PhDBSECEthree",
+    gradececoursethree = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="PhDBSECEthree",
     verbose_name = "Graduate ECE Course III")
     gradecethreeterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradecethreegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradececoursefour = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDBSECEfour",
+    gradececoursefour = models.ForeignKey(Course, on_delete=models.PROTECT,  related_name="PhDBSECEfour",
     verbose_name = "Graduate ECE Course IV")
     gradecefourterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradecefourgrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradececoursefive = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDBSECEfive",
+    gradececoursefive = models.ForeignKey(Course, on_delete=models.PROTECT,  related_name="PhDBSECEfive",
     verbose_name = "Graduate ECE Course V")
     gradecefiveterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradecefivegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradececoursesix = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDBSECEsix",
+    gradececoursesix = models.ForeignKey(Course, on_delete=models.PROTECT,  related_name="PhDBSECEsix",
     verbose_name = "Graduate ECE Course VI")
     gradecesixterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradecesixgrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradtechcourseone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="PhDBSgradtechOne",
+    gradtechcourseone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="PhDBSgradtechOne",
     verbose_name ="Graduate Technical Elective from ECE or other approved area Course I")
     gradtechoneterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradtechonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradtechcoursetwo = models.ForeignKey(Course,  on_delete=models.SET_NULL, null = True, related_name="PhDBSgradtechTwo",
+    gradtechcoursetwo = models.ForeignKey(Course,  on_delete=models.PROTECT, related_name="PhDBSgradtechTwo",
     verbose_name = "Graduate Technical Elective from ECE or other approved area Course II")
     gradtechtwoterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradtechtwograde = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    electiveone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDBSelectiveOne",
+    electiveone = models.ForeignKey(Course, on_delete=models.PROTECT,  related_name="PhDBSelectiveOne",
     verbose_name = "Elective I")
     electiveoneterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     electiveonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    electivetwo = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDBSelectiveTwo",
+    electivetwo = models.ForeignKey(Course, on_delete=models.PROTECT,  related_name="PhDBSelectiveTwo",
     verbose_name = "Elective II")
     electivetwoterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
@@ -189,37 +189,37 @@ class PHDBachelorComment(models.Model):
          verbose_name_plural = 'PHD Bachelor Comments'
 
 class PHDMasterPOS(models.Model):
-    curriculararea = models.ForeignKey(CurricularArea, on_delete=models.SET_NULL, null = True,
+    curriculararea = models.ForeignKey(CurricularArea, on_delete=models.PROTECT,
     related_name="PHDMScurricular_area", verbose_name = "ECE Curricular Area")
-    gradececourseone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="PhDMSECEone",
+    gradececourseone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="PhDMSECEone",
     verbose_name = "Graduate ECE Course I")
     gradeceoneterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradeceonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradececoursetwo = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDMSECEtwo",
+    gradececoursetwo = models.ForeignKey(Course, on_delete=models.PROTECT,  related_name="PhDMSECEtwo",
     verbose_name = "Graduate ECE Course II")
     gradecetwoterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradecetwograde = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradececoursethree = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="PhDMSECEthree",
+    gradececoursethree = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="PhDMSECEthree",
     verbose_name = "Graduate ECE Course III")
     gradecethreeterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradecethreegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradtechcourseone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="PhDMSgradtechOne",
+    gradtechcourseone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="PhDMSgradtechOne",
     verbose_name ="Graduate Technical Elective from ECE or other approved area Course I")
     gradtechoneterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradtechonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    electiveone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True,  related_name="PhDMSelectiveOne",
+    electiveone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="PhDMSelectiveOne",
     verbose_name = "Elective I")
     electiveoneterm = models.CharField(max_length=30,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])

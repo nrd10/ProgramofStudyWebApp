@@ -52,14 +52,14 @@ class MEngPOS(models.Model):
     '''
     Model for storing Program of Study forms for MEng students
     '''
-    coreclassone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, blank=True,
+    coreclassone = models.ForeignKey(Course, on_delete=models.PROTECT,
     related_name = "Mengcoreone", verbose_name = "Core Industry Prep Course I")
     coreterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     coreonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    coreclasstwo = models.ForeignKey(Course,  on_delete=models.SET_NULL, null = True, blank=True,
+    coreclasstwo = models.ForeignKey(Course,  on_delete=models.PROTECT,
     related_name = "Mengcoretwo", verbose_name = "Core Industry Prep Course II")
     coretwoterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term",  default=TERMS[0])
@@ -67,56 +67,56 @@ class MEngPOS(models.Model):
     "Grade", blank=True)
 
     concentration = models.ForeignKey(Concentration, on_delete=models.SET_NULL, null=True)
-    techcourseone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEngtechONE",
+    techcourseone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEngtechONE",
     verbose_name = "Concentration Area Course I")
     techoneterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     techonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    techcoursetwo = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEngtechTWO",
+    techcoursetwo = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEngtechTWO",
     verbose_name = "Concentration Area Course II ")
     techtwoterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     techtwograde = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    techcoursethree = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEngtechThree",
+    techcoursethree = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEngtechThree",
     verbose_name = "Concentration Course III")
     techthreeterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     techthreegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradtechcourseone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEnggradtechOne",
+    gradtechcourseone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEnggradtechOne",
     verbose_name ="Graduate Technical Elective from ECE or other approved area Course I")
     gradtechoneterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradtechonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    gradtechcoursetwo = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEnggradtechTwo",
+    gradtechcoursetwo = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEnggradtechTwo",
     verbose_name = "Graduate Technical Elective from ECE or other approved area Course II")
     gradtechtwoterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     gradtechtwograde = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    electiveone = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEngelectiveOne",
+    electiveone = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEngelectiveOne",
     verbose_name = "Elective I")
     electiveoneterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     electiveonegrade = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    electivetwo = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEngelectiveTwo",
+    electivetwo = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEngelectiveTwo",
     verbose_name = "Elective II")
     electivetwoterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
     electivetwograde = models.CharField(max_length=5,choices=GRADES, verbose_name =
     "Grade", blank=True)
 
-    electivethree = models.ForeignKey(Course, on_delete=models.SET_NULL, null = True, related_name="MEngelectiveThree",
+    electivethree = models.ForeignKey(Course, on_delete=models.PROTECT, related_name="MEngelectiveThree",
     verbose_name = "Elective III")
     electivethreeterm = models.CharField(max_length=20,choices=TERMS, verbose_name =
     "Term", default=TERMS[0])
