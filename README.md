@@ -302,6 +302,17 @@ a) Elective b) Technical Elective. This command automates adding these two data 
 3. *firstuser.py*: This command automates the creation of a superuser command that is used to login to the Django Admin Interface. It makes 
 use of the `password` environment variable to set the password of the superuser account. The username is set as **superuser**. 
 
+The following commands were built to automate imports of Course data into the Course Table. These functions were used in conjunction with Celery
+to be ran in the background. More information on Celery is located in [Asynchronous & Background Tasks](#asynchronous-background-tasks).
+1. *importechnical.py*: This command automates the import of Technical Elective Courses from the Duke Course Curriculum API.
+2. *importelective.py*: This command automates the import of Elective Courses from the Duke Course Curriculum API. 
+3. *updatelective.py*: This command automates the update of Elective Courses from the Duke Course Curriculum API.
+4. *updatetechnical.py*: This command automes the update of Technical Elective Courses from the Duke Course Curriculum API.
+
+The following commands were built to send emails to multiple DGS and Advisor accounts. These commands were used in conjuction with Celery to be ran
+in the background. More information on Celery is located in [Asynchronous & Background Tasks](#asynchronous-background-tasks).
+1. *dgsemail.py*: This command emails DGS accounts the number of Program of Study forms that are pending review.
+2. *email.py*: This command emails Advisor accounts the number of Program of Study forms that are pending review. 
 
 # Asynchronous & Background Tasks
 Some functionalities, such as the mass import of Courses into the database through the Custom Admin Interface, take more than 
