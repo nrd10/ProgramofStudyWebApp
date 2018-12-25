@@ -289,6 +289,19 @@ Duke ECE department. Specifically, courses are not counted for more than one fie
 Independent Study courses can be used towards a student's program of study.
 
 # Management Commands
+Django has a built in API to allow for developers to build their own admin.py management commands. These commands allow for the automation of 
+certain administrative functions. Specifically, scripts can be written to automate the population of tables in the database. Custom management
+commands were built to allow for the automatic population of data tables every time the web application was spun up in Docker. The following 
+commands were built to populate our database initially so administrators did not have to do so manually. These commands are run in Docker 
+when our `web` Docker container is spun up:
+1. *addgroups.py*: This command creates distinct Groups for students, advisors, administrators, and DGS accounts. Each Group is then
+given a subset of different permissions that allows each Group to have access to a different set of functions in the web application.
+The command finally adds these Groups to the Groups table in the database.
+2. *coursetypes.py*: This commands adds the two types of Course Categories used in the web application to the Course Type table:
+a) Elective b) Technical Elective. This command automates adding these two data rows to the Course Type table.
+3. *firstuser.py*: This command automates the creation of a superuser command that is used to login to the Django Admin Interface. It makes 
+use of the `password` environment variable to set the password of the superuser account. The username is set as **superuser**. 
+
 
 # Asynchronous & Background Tasks
 Some functionalities, such as the mass import of Courses into the database through the Custom Admin Interface, take more than 
