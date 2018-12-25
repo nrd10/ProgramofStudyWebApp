@@ -291,6 +291,21 @@ Independent Study courses can be used towards a student's program of study.
 # Management Commands
 
 # Asynchronous & Background Tasks
+Some functionalities, such as the mass import of Courses into the database through the Custom Admin Interface, take more than 
+a few seconds to accomplish. As a result, if users attempt to run these functions, the user would normally have to wait a few minutes for the 
+function to finish. The Gunicorn server that is used to run this web application times out if any request takes longer than 30 seconds. As a result,
+functionalities built in this manner would fail. To allow for functions with long run times to work, we must run them asynchronously. This would mean
+allowing a user to initiate a task to run in the background, allow a user to navigate to other parts of the web application while the task runs,
+and finally be notified in some manner that the background task has finished. This workflow is accomplished through the Django Celery library.
+
+Celery is a library that allows developers to make use of task queues. Task queues are  used as a mechanism to distribute work across threads or machines.
+A task queue’s input is a unit of work called a task. Dedicated worker processes constantly monitor task queues for new work to perform. Through Celery,
+any task can be allowed on the task queue, and worker processes will be notified of their presence in the queue, perform these tasks asynchronously.
+Celery communicates via messages, usually using a broker to mediate between clients and workers.  To initiate a task the client adds a message to 
+the queue, the broker then delivers that message to a worker. In our setup, Redis was used as the message broker to notify worker processes of new 
+tasks. Celery was used to allow time intensive requests to run in the background. In particular, it was used to process:
+1. Course Imports made from Duke Curriculum API calls
+2. Send scheduled emails to Advisor and DGS accounts
 
 # Docker Setup
 The web application makes use of Docker and is built through docker-compose. Each command in the Dockerfile used to
