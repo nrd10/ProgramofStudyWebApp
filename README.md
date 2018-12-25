@@ -318,14 +318,17 @@ to be printed to the Terminal.
 4. `WORKDIR /code`: Specifies a new default directory within the Docker image's file system.
 5. `ADD requirements.txt /code/`: Adds requirements.txt file to /code directory
 6. `RUN pip3 install -r requirements.txt`: installs requirement files that are needed to run the Django project.
-7. `ADD . /code/`: Copys all project files in current directory into /code directory.
+7. `ADD . /code/`: Copys all project files in current directory into /code directory. These project files are necessary for each container
+that is built using this Dockerfile as explained later. 
 8. `RUN groupadd posgroup`: Creates a new Group Account on the host Linux OS
 9. `RUN useradd -m -G posgroup posuser`: Creates a new user "posuser" to the newly created Group Account.
 10. `RUN mkdir /var/run/celery`: Creates a new directory
 11. `RUN chown -R posuser:posgroup /var/run/celery/`: Makes the newly created directory owned by the
 newly created Group Account.
 12. `USER posuser`: Sets the current user running this container as "posuser". This makes sure that the container
-is not running with root privileges. 
+is not running with root privileges. We gave permissions to the Group this User is a part of to the folder "/var/run/celery" as 
+the user running the container based off this image needs access to this directory to correctly run Celery tasks. The containers
+used for Celery are explained in greater detail later in this section.
 
 This above image is used in multiple containers as shown in the `docker-compose.yml` file below: 
 ```version: '3'
@@ -403,12 +406,13 @@ if it does not already exist.
 Celery is a task queue. Celery worker processes wait to be delivered a message from our message broker, Redis, when it detects a task
 is in the queue. This container waits to be sent messages from Redis and will then run the associated tasks asynchronously and in
 the background. This allows users to navigate to different web pages after initiating a certain task. For example, any task related
-to import Courses from the Duke API run asynchronously due to this service. 
+to import Courses from the Duke API run asynchronously due to this service. It makes use of the project files in the /code directory to
+run celery tasks correctly.
 6. `celery-beat`: This service runs a Celery beat, a scheduler. Certain tasks, such as emailing DGS and Adviser accounts, are configured
 in Celery in the Django project to run at a scheduled time every day. Celery beat is the scheduler that sets the exact time at which
 emails are sent out to DGS and Advissor accounts. This service is responsible for allocating scheduled tasks on the task queue.
 When these tasks are within the queue, Redis will detect them and send a message to the `celery` service which will run the task
-asynchronously. 
+asynchronously. It makes use of the project files in the /code directory to schedule celery tasks correctly.
 
 
 
