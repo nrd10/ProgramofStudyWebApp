@@ -305,6 +305,7 @@ use of the `password` environment variable to set the password of the superuser 
 Topics courses that are not always consistently offered. These courses are listed under ECE 590. These courses are not found in the Duke Curriculum
 API so they must be manually added to the database. In order to avoid that, the above management command was created to automate the process of
 creating Special Topics Courses in the database.
+
 The following commands were built to automate imports of Course data into the Course Table. These functions were used in conjunction with Celery
 to be ran in the background. More information on Celery is located in [Asynchronous & Background Tasks](#asynchronous-background-tasks).
 1. *importechnical.py*: This command automates the import of Technical Elective Courses from the Duke Course Curriculum API.
