@@ -191,6 +191,7 @@ class MEngComment(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     text = models.TextField(max_length=2000, help_text="Please enter a comment explaining why this form is being rejected.")
     authortype = models.CharField(max_length=30, choices=COMMENTS, blank=True, help_text='Either DGS or Advisor Commenting')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     class Meta:
          verbose_name = 'MEng Comment'
          verbose_name_plural = 'MEng Comment'

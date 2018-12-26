@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'administration.apps.AdministrationConfig',
@@ -76,8 +75,6 @@ INSTALLED_APPS = [
     'celery_progress',
     'disqus',
 ]
-
-SITE_ID = 1
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
