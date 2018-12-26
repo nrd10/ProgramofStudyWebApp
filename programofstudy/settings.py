@@ -50,6 +50,7 @@ SENDGRID_SANDBOX_MODE_IN_DEBUG = False
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -73,8 +74,10 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'oauth2_provider',
     'celery_progress',
-    'disqus',
+    'django_comments',
 ]
+
+SITE_ID = 1
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 

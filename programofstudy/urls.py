@@ -25,6 +25,7 @@ urlpatterns = [
     #ajax_select urls
     url(r'^ajax_select/', include(ajax_select_urls)),
     url(r'^select2/', include('django_select2.urls')),
+    url(r'^comments/', include('django_comments.urls')),
     path('', RedirectView.as_view(url='/POS/', permanent=True)),
     path('admin/', admin.site.urls),
     path('POS/', include('shared.urls')),
