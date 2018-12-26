@@ -30,7 +30,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = [
-    'vcm-4469.vm.duke.edu',
+   'vcm-4469.vm.duke.edu',
+    'gradops.ece.duke.edu'
 ]
 
 #Sengrid Email Settings
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'administration.apps.AdministrationConfig',
@@ -72,7 +74,10 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'oauth2_provider',
     'celery_progress',
+    'disqus',
 ]
+
+SITE_ID = 1
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 

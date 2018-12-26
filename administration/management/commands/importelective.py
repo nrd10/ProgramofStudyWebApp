@@ -132,7 +132,7 @@ class Command(BaseCommand):
             fifth_key = {}
             fifth_key = fourth_key['course_summaries']
             SUBJECT = fourth_key['subject']
-            logger.error("SUBJECT IS: "+SUBJECT)
+            print("SUBJECT IS: "+SUBJECT)
             mylist = fifth_key['course_summary']
 
             elective = "Elective"

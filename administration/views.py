@@ -60,9 +60,9 @@ def admindatabase(request):
     Create function for admin
     """
     total = Course.objects.count()
-    if total == 0:
+    if total < 12:
         import_courses = 'True'
-    elif total < 11300:
+    elif (total < 11300 and total > 12):
         import_courses = 'Maybe'
     else:
         import_courses = 'False'

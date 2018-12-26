@@ -3,8 +3,13 @@
 {% load bootstrap3 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-
 {% bootstrap_messages %}
+
+{% load disqus_tags %}
+{% set_disqus_identifier "page_" page.pk %}
+{% set_disqus_title page.title %}
+{% disqus_show_comments %}
+{% disqus_dev %}
 
 
 
