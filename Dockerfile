@@ -10,5 +10,5 @@ RUN useradd -m -G posgroup posuser
 RUN mkdir /var/run/celery
 RUN chown -R posuser:posgroup /var/run/celery/
 RUN chown -R posuser:posgroup /code/
-USER posuser
+#USER posuser
 
