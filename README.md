@@ -301,7 +301,10 @@ The command finally adds these Groups to the Groups table in the database.
 a) Elective b) Technical Elective. This command automates adding these two data rows to the Course Type table.
 3. *firstuser.py*: This command automates the creation of a superuser command that is used to login to the Django Admin Interface. It makes 
 use of the `password` environment variable to set the password of the superuser account. The username is set as **superuser**. 
-
+4. *590courses.py*" This command automates the creation of ECE 590 Special Topics courses in the databaes. Every year the ECE department creates Special
+Topics courses that are not always consistently offered. These courses are listed under ECE 590. These courses are not found in the Duke Curriculum
+API so they must be manually added to the database. In order to avoid that, the above management command was created to automate the process of
+creating Special Topics Courses in the database.
 The following commands were built to automate imports of Course data into the Course Table. These functions were used in conjunction with Celery
 to be ran in the background. More information on Celery is located in [Asynchronous & Background Tasks](#asynchronous-background-tasks).
 1. *importechnical.py*: This command automates the import of Technical Elective Courses from the Duke Course Curriculum API.
