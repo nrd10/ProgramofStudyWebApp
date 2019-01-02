@@ -1,5 +1,5 @@
 FROM python:3.5
-ENV PYTHONUNBUFFERED 1
+1;95;0cENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
@@ -10,5 +10,7 @@ RUN useradd -m -G posgroup posuser
 RUN mkdir /var/run/celery
 RUN chown -R posuser:posgroup /var/run/celery/
 RUN chown -R posuser:posgroup /code/
+RUN chown -R posuser /code
+
 USER posuser
 
