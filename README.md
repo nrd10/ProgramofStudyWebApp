@@ -41,6 +41,8 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 
 8.0 [Docker Setup](#docker-setup)
 
+9.0 [To Do List](#to-do-list)
+
 # How to Run
 To successfully build the project users must:
 1. Clone the repository, add and correctly configure an environment file (.env)
@@ -437,5 +439,5 @@ When these tasks are within the queue, Redis will detect them and send a message
 asynchronously. It makes use of the project files in the /code directory to schedule celery tasks correctly.
 
 
-
+# To Do List
 
