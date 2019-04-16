@@ -367,45 +367,59 @@ This above image is used in multiple containers as shown in the `docker-compose.
 services:
  db:
    image: postgres
+   volumes:
+         - posdata-volume:/var/lib/postgresql/data
    environment:
      - POSTGRES_USER=${DOCKER_USER}
      - POSTGRES_PASSWORD=${DOCKER_PASSWORD}
      - POSTGRES_DB=${DOCKER_NAME}
  redis:
    image: "redis:alpine"
- web:
+ posweb-init:
    build: .
-   command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py coursetypes && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
+   command: /code/initserver.sh
+   volumes:
+     - .:/code
+   depends_on:
+     - posdb
+ posweb:
+   build: .
+   command: /code/runserver.sh
    volumes:
      - .:/code
    ports:
      - "8000:8000"
    depends_on:
-     - db
+     - posdb
      - redis
- celery:
+ poscelery:
    build: .
    command: celery -A programofstudy worker -l info
    volumes:
      - .:/code
    depends_on:
-     - db
+     - posdb
      - redis
+     - posweb-init
    expose:
      - "8000"
- celerybeat:
+ poscelerybeat:
    build: .
    command: celery -A programofstudy beat -l info --pidfile="/var/run/celery/celerybeat.pid" --schedule="/var/run/celery/celerybeat-schedule"
    volumes:
      - .:/code
    depends_on:
-     - db
+     - posdb
+     - redis
+     - posweb-init
+volumes:
+   posdata-volume:
 ```
 
 This `docker-compose.yml` file is used to define multiple services that are needed to be running in order to allow the entire 
 application to function correctly. The first two services: db and redis use images downloaded from Docker Hub.
 The following descriptions summarize what each service does and how each service was configured:
-1. `db`: This service contains the Postgres database utilized by the web application. It makes use of variables set in our 
+1. `posdb`: This service contains the Postgres database utilized by the web application. It makes use of variables set in our 
 .env file through the environment option to correctly configure the Postgres database name, user and password.
 2. `redis`: This service is used as the message broker for the celery and celerybeat services explained later. As explained in 
 the [Asynchronous & Background Tasks](#asynchronous-background-tasks) section Celery makes use of a message broker to feed messages
