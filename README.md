@@ -68,7 +68,7 @@ DOCKER_NAME=
 DOCKER_USER= 
 DOCKER_PASSWORD= 
 password= 
-
+DOMAIN=
 ```
 
 1. `SECRET_KEY`: This variable is the key in Django to secure signed data – it is vital you keep this secure, or 
@@ -95,7 +95,10 @@ project and `docker-compose.yml` file in the same ways DOCKER_NAME and DOCKER_US
 9. `password`: This variable should be set with the password users want to use for their superuser account to login to 
 Django's Admin Interface. When the project is built in Docker a superuser account is created with the value set for 'password' with 
 the username 'superuser'. How this is implemented is explained more in the [Management Commands](#management-commands) section.
-
+10. `DOMAIN`: This variable is used for authentication. This web application uses the OAuth protocol to authenticate
+Duke University students. In order for this authentication protocol to work, a CoLab OAuth application was created that
+was configured to point to a specific server. That server's address must be placed here in order for that application to
+correctly redirect users back to this Django application. E.g. vcm-5210.vm.duke.edu
 **Note:** Docker-compose expects .env variables to be typed as so:
 ```
 key=value
