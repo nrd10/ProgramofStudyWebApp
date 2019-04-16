@@ -26,7 +26,7 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 3.0 [Custom Admin Interface](#custom-admin-interface)
 
 4.0 [OAuth Authentication](#oauth-authentication)
-OAuth 2.0 Authentication
+
 
 5.0 [General Setup](#general-setup)
 
