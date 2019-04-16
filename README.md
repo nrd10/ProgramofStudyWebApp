@@ -25,7 +25,8 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 
 3.0 [Custom Admin Interface](#custom-admin-interface)
 
-4.0 [OAuth 2.0 Authentication](#oauth-2.0-authentication)
+4.0 [OAuth Authentication](#oauth-authentication)
+OAuth 2.0 Authentication
 
 5.0 [General Setup](#general-setup)
 
@@ -223,7 +224,7 @@ if a student submits a Program of Study form as Courses cannot count twice. If a
 can submit the form for the student. These submission functionalities do not have the same Form Validation as the student submisssion functionalities. This
 allows the Administrator account greater freedom in submitting a Program of Study form. 
 
-# OAuth 2.0 Authentication
+# OAuth Authentication
 The web application makes use of of the OAuth 2.0 authentication protocol rather than Django's built in login system. The authentication framework
 is utilized as it is an industry standard authentication protocol, and to allow users of the web application to authenticate with their Duke credentials.
 Administrators must first register new users through the application's Custom Admin Interface. When creating a new user, administrators must
