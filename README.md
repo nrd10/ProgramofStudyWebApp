@@ -442,7 +442,11 @@ asynchronously. It makes use of the project files in the /code directory to sche
 # To Do List
 1. Change docker-compose.yml to back up database to a volume 
 2. Change docker-compose.yml to use bash (.sh) scripts on initialization since the commands that run on container
-initialization currently are extremely long
+initialization currently are extremely long. Currently the docker-compose.yml file runs multiple Django management commands.
+That still should be done when the container is spun up, but the docker-compose.yml file makes use of the 'command' clause.
+As a result, since I am running multiple management commands on initialization, the command that is run is extremely long
+in the docker-compose.yml file. To correct this, all of the commands can be put in some Bash script. The docker-compose.yml
+file can be configured to run that Bash script on container initialziation.
 3. Change Email scheme. Currently the web application makes usee of SendGrid and requires a SendGrid API key. Change the
 email backend to make use of Duke's mail server (I believe that is smtp.duke.edu)
 4. Store .env file in a backup (maybe a Docker volume). A .env file currently is not stored in this repository so users
