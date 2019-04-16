@@ -478,6 +478,6 @@ email backend to make use of Duke's mail server (I believe that is smtp.duke.edu
 5. Store .env file in a backup (maybe a Docker volume). A .env file currently is not stored in this repository so users
 must create a .env file every time this web application is deployed to a new server. 
 6. Change the models to make use of commenting. Currently comments are only able to be made in the web application if a 
-form is rejected by an advisor or the DGS. Drew wanted to have the ability to make comments on any form if he Approved
+form is rejected by an advisor or the DGS. Drew Hilton requested the ability to make comments on any form if he Approved
 or Rejected the form. This way he would be able to remember why he Approved a form for a student in certain circumstances.
 
