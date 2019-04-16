@@ -525,7 +525,9 @@ def duke_login(request):
     # authorize = "https://oauth.oit.duke.edu/authorize"
     client_id = config("CLIENT_ID")
     client_secret = config("CLIENT_SECRET")
-    redirect_uri ="http%3A%2F%2Fvcm-4469.vm.duke.edu%3A8000%2FPOS%2Fexternal_login"
+    server = config("DOMAIN")
+    #redirect_uri ="http%3A%2F%2Fvcm-4469.vm.duke.edu%3A8000%2FPOS%2Fexternal_login"
+    redirect_uri = "http%3A%2F%2F"+server+"%3A8000%2FPOS%2Fexternal_login"
     scope = "basic"
     state = "1123"
 
