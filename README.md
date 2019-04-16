@@ -417,15 +417,17 @@ volumes:
 ```
 
 This `docker-compose.yml` file is used to define multiple services that are needed to be running in order to allow the entire 
-application to function correctly. The first two services: db and redis use images downloaded from Docker Hub.
+application to function correctly. The first two services: posdb and redis use images downloaded from Docker Hub.
 The following descriptions summarize what each service does and how each service was configured:
 1. `posdb`: This service contains the Postgres database utilized by the web application. It makes use of variables set in our 
-.env file through the environment option to correctly configure the Postgres database name, user and password.
+.env file through the environment option to correctly configure the Postgres database name, user and password. We also create a
+Docker volume, 'podata-volume' to store our database in. This way, if the container is destroyed, any data in the database will
+be stored in the data volume, allowing our data to persist. 
 2. `redis`: This service is used as the message broker for the celery and celerybeat services explained later. As explained in 
 the [Asynchronous & Background Tasks](#asynchronous-background-tasks) section Celery makes use of a message broker to feed messages
 between workers and clients. This service is used to act as the message broker for Celery in this web application.
 
-The next 3 services: web, celery, and celerybeat are built using the Dockerfile specified above. In all three we specify to build
+The next 4 services: posweb-init, posweb, poscelery, and poscelerybeat are built using the Dockerfile specified above. In all three we specify to build
 each container using the Dockerfile above by feeding '.' to the build docker-compose configuration line. This specifies that the
 Dockerfile to use to build this service is within our current directory. In each service we also mount the current directory to
 the /code directory. In our Dockerfile we created a /code directory and copied all of the project files in our current directory to 
@@ -433,20 +435,22 @@ the /code directory as shown above. Here we are now mounting our current directo
 step allows any changes that are made to the project directory to be reflected in each container's /code directory. This means that
 any changes to files within the current directory will also change matching files in the /code directory since the /code directory
 contains a copy of each file in the current directory.
-
-3. `web`: This service runs the Django project in the web application. When the container is started the lines specified
-in "command" are run. The commands that are run a) create database migrations b) migrate those migrations to the database c) 
-run multiple Django management commands and d) deploy the Django project on a Gunicorn web server to begin accepting web connections.
-The management commands are explained in greater detail in [Management Commands](#management-commands). The management commands 
+3. `posweb-init`: This service initializes our Django web application. We specify to run the 'initserver.sh' Bash script
+when this container spins up. The commands in that Bash script are run and a) create database migrations b) migrate those migrations to the database c) 
+run multiple Django management commands. The management commands are explained in greater detail in [Management Commands](#management-commands). The management commands 
 that are run when this container starts add permission groups, populate the Course Type table, and create a superuser account 
-if it does not already exist. 
-4. `celery`: This service runs Celery worker processes. As explained in [Asynchronous & Background Tasks](#asynchronous-background-tasks)
+if it does not already exist. This container is specifically made to ensure a "Connection Refused" error does not
+occur. This error occurs if the web application attempts to connect to the database container before it is ready. We use
+this container to initialize the web application and wait a few seconds before attempting to connect to our database container.
+4. `posweb`: This service runs the Django project in the web application. When the container is started the runserver.sh
+Bash script is run. This script deploys the Django project on a Gunicorn web server to begin accepting web connections.
+5. `poscelery`: This service runs Celery worker processes. As explained in [Asynchronous & Background Tasks](#asynchronous-background-tasks)
 Celery is a task queue. Celery worker processes wait to be delivered a message from our message broker, Redis, when it detects a task
 is in the queue. This container waits to be sent messages from Redis and will then run the associated tasks asynchronously and in
 the background. This allows users to navigate to different web pages after initiating a certain task. For example, any task related
 to import Courses from the Duke API run asynchronously due to this service. It makes use of the project files in the /code directory to
 run celery tasks correctly.
-5. `celery-beat`: This service runs a Celery beat, a scheduler. Certain tasks, such as emailing DGS and Adviser accounts, are configured
+6. `poscelery-beat`: This service runs a Celery beat, a scheduler. Certain tasks, such as emailing DGS and Adviser accounts, are configured
 in Celery in the Django project to run at a scheduled time every day. Celery beat is the scheduler that sets the exact time at which
 emails are sent out to DGS and Advissor accounts. This service is responsible for allocating scheduled tasks on the task queue.
 When these tasks are within the queue, Redis will detect them and send a message to the `celery` service which will run the task
