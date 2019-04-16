@@ -31,7 +31,8 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = [
    'vcm-4469.vm.duke.edu',
-    'gradops.ece.duke.edu'
+   'vcm-5210.vm.duke.edu',
+   'gradops.ece.duke.edu'
 ]
 
 #Sengrid Email Settings
