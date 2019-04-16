@@ -41,6 +41,8 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 
 8.0 [Docker Setup](#docker-setup)
 
+9.0 [To Do List](#to-do-list)
+
 # How to Run
 To successfully build the project users must:
 1. Clone the repository, add and correctly configure an environment file (.env)
@@ -437,5 +439,21 @@ When these tasks are within the queue, Redis will detect them and send a message
 asynchronously. It makes use of the project files in the /code directory to schedule celery tasks correctly.
 
 
-
-
+# To Do List
+1. Change docker-compose.yml to back up database to a volume 
+2. Change docker-compose.yml to use bash (.sh) scripts on initialization since the commands that run on container
+initialization currently are extremely long. Currently the docker-compose.yml file runs multiple Django management commands.
+That still should be done when the container is spun up, but the docker-compose.yml file makes use of the 'command' clause.
+As a result, since I am running multiple management commands on initialization, the command that is run is extremely long
+in the docker-compose.yml file. To correct this, all of the commands can be put in some Bash script. The docker-compose.yml
+file can be configured to run that Bash script on container initialziation.
+3. Change Email scheme. Currently the web application makes usee of SendGrid and requires a SendGrid API key. Change the
+email backend to make use of Duke's mail server (I believe that is smtp.duke.edu)
+4. Store .env file in a backup (maybe a Docker volume). A .env file currently is not stored in this repository so users
+must create a .env file every time this web application is deployed to a new server. 
+5. Change the models to make use of commenting. Currently comments are only able to be made in the web application if a 
+form is rejected by an advisor or the DGS. Drew wanted to have the ability to make comments on any form if he Approved
+or Rejected the form. This way he would be able to remember why he Approved a form for a student in certain circumstances.
+6. Change docker-compose.yml to make use of a 'web-init' container. This container would be used to initialize the state 
+of the web application and ensure we don't receive a "Connection Refused" error in Docker. (Take a look at docker-compose.yml
+file releeased by Drew or Brian Rodgers for ECE 568 for HW1).
