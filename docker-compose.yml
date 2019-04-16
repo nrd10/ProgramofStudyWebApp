@@ -1,39 +1,52 @@
 version: '3'
 
 services:
- db:
+ posdb:
    image: postgres
+   volumes:
+         - posdata-volume:/var/lib/postgresql/data
    environment:
      - POSTGRES_USER=${DOCKER_USER}
      - POSTGRES_PASSWORD=${DOCKER_PASSWORD}
      - POSTGRES_DB=${DOCKER_NAME}
  redis:
    image: "redis:alpine"
- web:
+ posweb-init:
    build: .
-   command: bash -c "python3 manage.py migrate && python3 manage.py addgroups && python3 manage.py coursetypes && python3 manage.py 590courses && python3 manage.py firstuser && gunicorn programofstudy.wsgi -b [::]:8000"
+   command: /code/initserver.sh
+   volumes:
+     - .:/code
+   depends_on:
+     - posdb
+ posweb:
+   build: .
+   command: /code/runserver.sh
    volumes:
      - .:/code
    ports:
      - "8000:8000"
    depends_on:
-     - db
+     - posdb
      - redis
- celery:
+ poscelery:
    build: .
    command: celery -A programofstudy worker -l info
    volumes:
      - .:/code
    depends_on:
-     - db
+     - posdb
      - redis
+     - posweb-init
    expose:
      - "8000"
- celerybeat:
+ poscelerybeat:
    build: .
    command: celery -A programofstudy beat -l info --pidfile="/var/run/celery/celerybeat.pid" --schedule="/var/run/celery/celerybeat-schedule"
    volumes:
      - .:/code
    depends_on:
-     - db
+     - posdb
      - redis
+     - posweb-init
+volumes:
+   posdata-volume:

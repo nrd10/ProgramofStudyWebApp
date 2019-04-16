@@ -145,7 +145,7 @@ DATABASES = {
         'NAME': config('DOCKER_NAME'),
         'USER': config('DOCKER_USER'),
         'PASSWORD': config('DOCKER_PASSWORD'),
-        'HOST': 'db',
+        'HOST': 'posdb',
         'PORT': 5432,
     }
 }
