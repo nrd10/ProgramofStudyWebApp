@@ -38,7 +38,7 @@ forms, approving or rejecting forms, and tracking any changes related to a stude
 
 6.0 [Management Commands](#management-commands)
 
-7.0 [Asynchronous & Background Tasks](#asynchronous-&-background-tasks)
+7.0 [Asynchronous and Background Tasks](#asynchronous-and-background-tasks)
 
 8.0 [Docker Setup](#docker-setup)
 
