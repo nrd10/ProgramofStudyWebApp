@@ -324,7 +324,7 @@ in the background. More information on Celery is located in [Asynchronous & Back
 1. *dgsemail.py*: This command emails DGS accounts the number of Program of Study forms that are pending review.
 2. *email.py*: This command emails Advisor accounts the number of Program of Study forms that are pending review. 
 
-# Asynchronous And Background Tasks
+# Asynchronous and Background Tasks
 Some functionalities, such as the mass import of Courses into the database through the Custom Admin Interface, take more than 
 a few seconds to accomplish. As a result, if users attempt to run these functions, the user would normally have to wait a few minutes for the 
 function to finish. The Gunicorn server that is used to run this web application times out if any request takes longer than 30 seconds. As a result,
