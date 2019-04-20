@@ -152,7 +152,7 @@ form and have the ability to Approve or Reject the form. Advisors are able to vi
 who then must approve them. If they are rejected, student's must resubmit an amended Program of Study form. 
 
 #### The image below shows the view an Advisor receives when viewing a submitted POS Form: 
-![Advisor_View](/uploads/56f9f03ac1ed5e54228aa1f63542b12a/Advisor_View.png)
+![Advisor_View](Advisor_View.png)
 
 # Functionalities: DGS
 Functions available to advisors are summarized below:
@@ -166,12 +166,12 @@ Once Program of Study forms are Approved by an Advisor, they are viewable by DGS
 If forms are rejected by a DGS account, student's must resubmit an amended Program of Study form. 
 
 #### The image below shows the view a DGS account receives when viewing a submitted POS Form:
-![DGS_Form_View](/uploads/3a625a9f35816c934d61310cfb33ba4f/DGS_Form_View.png)
+![DGS_Form_View](DGS_Form_View.png)
 
 
 
 #### The image below shows the view a DGS account will view when searching for previously reviewed forms:
-![DGS_Form_Search](/uploads/30c0a3a5af570f199a033809603923bb/DGS_Form_Search.png)
+![DGS_Form_Search](DGS_Form_Search.png)
 
 
 # Functionalities: Administrators
