@@ -313,14 +313,14 @@ API so they must be manually added to the database. In order to avoid that, the 
 creating Special Topics Courses in the database.
 
 The following commands were built to automate imports of Course data into the Course Table. These functions were used in conjunction with Celery
-to be ran in the background. More information on Celery is located in [Asynchronous & Background Tasks](#asynchronous-background-tasks).
+to be ran in the background. More information on Celery is located in [Asynchronous and Background Tasks](#asynchronous-background-tasks).
 1. *importechnical.py*: This command automates the import of Technical Elective Courses from the Duke Course Curriculum API.
 2. *importelective.py*: This command automates the import of Elective Courses from the Duke Course Curriculum API. 
 3. *updatelective.py*: This command automates the update of Elective Courses from the Duke Course Curriculum API.
 4. *updatetechnical.py*: This command automes the update of Technical Elective Courses from the Duke Course Curriculum API.
 
 The following commands were built to send emails to multiple DGS and Advisor accounts. These commands were used in conjuction with Celery to be ran
-in the background. More information on Celery is located in [Asynchronous & Background Tasks](#asynchronous-background-tasks).
+in the background. More information on Celery is located in [Asynchronous and Background Tasks](#asynchronous-background-tasks).
 1. *dgsemail.py*: This command emails DGS accounts the number of Program of Study forms that are pending review.
 2. *email.py*: This command emails Advisor accounts the number of Program of Study forms that are pending review. 
 
