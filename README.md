@@ -485,3 +485,4 @@ must create a .env file every time this web application is deployed to a new ser
 form is rejected by an advisor or the DGS. Drew Hilton requested the ability to make comments on any form if he Approved
 or Rejected the form. This way he would be able to remember why he Approved a form for a student in certain circumstances.
 7. Create script to restore data into postgres database container ('posdb') from created Docker volume.
+8. Create page to see all forms that need to be approved. At the moment advisors and DGS accounts have to navigate to specific MS, MEng or PhD form pages. A function needs to be created for form auditors to be able to view all types of forms that need to be approved all in one place.
