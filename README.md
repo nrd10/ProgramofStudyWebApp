@@ -135,7 +135,7 @@ is not waiting to be Approved or Rejected by an Advisor or a DGS account.
 
 
 #### The image below shows an example of the form creation page accessible by students:
-![Form_Creation](/uploads/e41eb9390c19138ebcfea37f2930c349/Form_Creation.png) 
+![Form_Creation](Form_Creation.png) 
 
 
 # Functionalities: Advisors
