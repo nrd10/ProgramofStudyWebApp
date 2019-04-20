@@ -207,6 +207,7 @@ times out after a minute passess in any request, this function must run asynchro
 built in Django support that supports asynchronous tasks. Through Celery, this Course import can run in the background and allow users to navigate
 to other sections of the web application as courses continue to be imported. How asynchronous tasks are built in this application is explained 
 more in the Asynchronous Tasks section.
+This function also handles possible errors returned by the Duke API such as if 1) the API returns NULL if there are no classess for a specific subject or 2) if the API returns a 404 status code. In these scenarios, the function will catch these error cases and proceed to continue to attempt to import courses of different subjects. 
 6. **Update all of Duke's offered Courses through Duke's Curriculum API**. This function works similarly to the full Course import function in that
 it makes use of Duke's API Catalog to import courses. This function should be run when the Course table in the Postgres database is already fully updated.
 This function updates the Courses within the database. It checks if a Course listing had it's name changed and will update the name of the course for 
