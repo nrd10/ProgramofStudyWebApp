@@ -368,7 +368,7 @@ used for Celery are explained in greater detail later in this section.
 This above image is used in multiple containers as shown in the `docker-compose.yml` file below: 
 ```version: '3'
 services:
- db:
+ posdb:
    image: postgres
    volumes:
          - posdata-volume:/var/lib/postgresql/data
