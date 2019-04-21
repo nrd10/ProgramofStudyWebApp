@@ -102,7 +102,6 @@ correctly redirect users back to this Django application. E.g. vcm-5210.vm.duke.
 **Note:** Docker-compose expects .env variables to be typed as so:
 ```
 key=value
-
 ```
 
 Leave **no spaces** between the value and the equal sign.
