@@ -975,7 +975,7 @@ def phdstudentoption(request):
 @permission_required('phd.PHDMS_Student_Create')
 def phdstudentoptioncreate(request):
     """
-    View function for advisor to pick between creating 1 of 3 MS Forms
+    View function for student to pick between creating 1 of 2 PHD Forms
     """
     return render(
         request,
