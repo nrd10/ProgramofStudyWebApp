@@ -967,7 +967,7 @@ def phdstudentoption(request):
 
     return render(
         request,
-        'PHDstudentoptionview.html',
+        'PHDoption.html',
         args
     )
 
