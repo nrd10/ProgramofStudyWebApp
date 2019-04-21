@@ -50,7 +50,7 @@ To successfully build the project users must:
 2. Run the following command when navigated to the parent directory containing the `docker-compose.yml` file
 
 ```
-sudo docker compose up
+sudo docker-compose up
 ```
 
 # Environment File Configuration
